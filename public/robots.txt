@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://saqi21.github.io/saqib-portfolio/sitemap.xml

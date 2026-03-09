@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -20,9 +21,34 @@ import {
 
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import { works } from "@/data/works";
+import { siteConfig } from "@/lib/constants";
 
 export function generateStaticParams() {
   return works.map((work) => ({ slug: work.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const work = works.find((w) => w.slug === slug);
+  if (!work) return {};
+
+  const title = `${work.name} - ${work.category === "sqa" ? "SQA" : "Frontend & SQA"} Project`;
+  const description = work.summary || work.tagline;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: `${siteConfig.url}/projects/${slug}`,
+      type: "article",
+    },
+  };
 }
 
 function getCategoryLabel(category: string) {
