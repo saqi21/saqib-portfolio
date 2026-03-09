@@ -1,4 +1,4 @@
-import { Experience, Education } from "@/types";
+import { Experience, Education, Certificate } from "@/types";
 
 export const experiences: Experience[] = [
   {
@@ -7,57 +7,105 @@ export const experiences: Experience[] = [
     period: "Dec 2025 - Present",
     location: "Remote - Lahore, Pakistan",
     description:
-      "Building and maintaining end-to-end test automation using Cypress with Cucumber (BDD), writing feature files and step definitions to ensure comprehensive coverage. Integrating automated tests into CI/CD pipelines to accelerate release cycles and collaborating with cross-functional teams to uphold the highest standards of software quality.",
+      "Building and maintaining end-to-end test automation using Cypress with Cucumber (BDD), writing feature files and step definitions to ensure comprehensive coverage across the Noldor insurance platform.",
+    highlights: [
+      "Built Cypress + Cucumber BDD automation framework from scratch using Nx monorepo",
+      "Automated 50+ E2E scenarios across Valinor, Carrier, and Data Client portals",
+      "Integrated automated test suite with CI/CD pipelines for continuous quality assurance",
+      "Designed modular Page Object Model architecture enabling rapid test expansion",
+    ],
   },
   {
     title: "Software Quality Assurance Engineer",
     company: "Devsloop",
-    period: "2022 - Present",
+    period: "Nov 2022 - Present",
     location: "Gujranwala, Punjab, Pakistan",
     description:
-      "Lead SQA executing comprehensive test plans for projects including EasyLlama, Beambox, and DoubleList. Achievements include efficient defect management, rigorous regression testing, and implementation of automation frameworks using Cypress.",
+      "Lead SQA for Beambox, EasyLlama, Lumimeds & DoubleList projects. Automated testing processes with Cypress, developed detailed test plans, and validated subscription and billing functionalities.",
+    highlights: [
+      "Lead SQA - Beambox, EasyLlama, Lumimeds & DoubleList projects",
+      "Automated test processes using Selenium WebDriver and Java, reducing manual testing effort",
+      "Increased automation coverage from 0% to 80% of core flows at Beambox",
+      "Reduced manual regression testing time from 3 hours to 40 minutes",
+      "Mentored junior QA engineers in manual and automated testing best practices",
+      "Performed in-depth codebase testing by analyzing code logic and validating edge cases",
+      "Managed defect tracking and prioritization, utilizing local database queries for efficient resolution",
+      "Created detailed bug reports and enhanced team efficiency during agile sprints",
+    ],
   },
   {
-    title: "Ruby on Rails Internship",
+    title: "Ruby on Rails Frontend Engineer",
     company: "Devsloop",
-    period: "07/2022 - 11/2022",
+    period: "Jul 2022 - Nov 2022",
     location: "Gujranwala, Punjab, Pakistan",
     description:
-      "Developed and maintained RESTful APIs, contributed to Agile projects, and resolved critical issues for enhanced system stability using Ruby on Rails.",
+      "At EasyLlama, leveraged Ruby on Rails' MVC framework to create responsive, user-focused interfaces. Developed and maintained scalable APIs, managed routes, and optimized code for seamless client-server integration.",
+    highlights: [
+      "Leveraged RoR's MVC structure for building robust web applications with optimized performance",
+      "Developed responsive, visually appealing interfaces ensuring seamless experience across devices",
+      "Created, maintained, and integrated RESTful APIs supporting frontend functionalities",
+      "Managed routes, backend tasks, and frontend integration for cohesive web applications",
+    ],
   },
   {
     title: "Front End Developer",
     company: "Shoretec Solutions",
-    period: "06/2020 - 05/2022",
-    location: "Remote",
+    period: "Jun 2020 - May 2023",
+    location: "Remote (USA)",
     description:
-      "Crafted responsive interfaces and enhanced user experiences on PHP projects. Specialized in building pixel-perfect UIs with modern CSS and JavaScript.",
+      "Worked on the Worship Support Network and Walexport projects, creating responsive and user-friendly interfaces with front-end best practices.",
+    highlights: [
+      "Developed dynamic, responsive web interfaces using PHP with HTML, CSS, and JavaScript",
+      "Developed features for mobile and desktop platforms, ensuring cross-browser compatibility",
+      "Collaborated with back-end developers to enhance website functionality and integrate features",
+      "Improved user experience by optimizing web applications for speed and scalability",
+      "Contributed in Scrum environments, participating in daily stand-ups and sprint planning",
+    ],
   },
 ];
 
 export const education: Education[] = [
   {
-    degree: "BS Computer Science",
-    institution: "GIFT University Gujranwala",
-    period: "10/2018 - 11/2022",
+    degree: "Bachelor of Science - Computer Science",
+    institution: "GIFT University",
+    period: "Oct 2018 - Nov 2022",
     location: "Gujranwala",
     description:
-      "Graduated with strong skills in programming and UI development. Built a Complaint Management System using CodeIgniter and completed multiple hands-on semester projects across different languages and frameworks.",
+      "Graduated with strong skills in programming and UI development. Built a Complaint Management System using CodeIgniter and completed multiple hands-on semester projects.",
   },
   {
-    degree: "Intermediate (Pre-Engineering)",
+    degree: "FSc Pre-Engineering",
     institution: "Punjab Group of Colleges",
-    period: "09/2016 - 03/2018",
+    period: "Sep 2016 - Mar 2018",
     location: "Daska",
     description:
-      "Completed my Intermediate in Pre-Engineering with a strong focus on Mathematics and Chemistry. Developed solid problem-solving and critical thinking skills that later shaped my approach to software development.",
+      "Completed Intermediate in Pre-Engineering with a strong focus on Mathematics and Chemistry.",
   },
   {
-    degree: "Matriculation (Bio)",
-    institution: "GOVT High School Mundeke Goraya",
-    period: "09/2014 - 03/2016",
+    degree: "Matriculation (Science)",
+    institution: "Govt High School Mundeke Goraya",
+    period: "Nov 2014 - Mar 2016",
     location: "Daska",
     description:
-      "Completed my Matric in Science (Bio) with Mathematics as one of my strongest subjects. Built a strong academic foundation and developed a discipline for hard work and consistent learning.",
+      "Completed Matric in Science (Bio) with Mathematics as one of the strongest subjects.",
   },
+];
+
+export const certificates: Certificate[] = [
+  {
+    name: "Great Learning Certified Selenium Basic",
+    issuer: "Great Learning",
+    date: "Jun 2024",
+  },
+  {
+    name: "Responsive Web Design",
+    issuer: "freeCodeCamp",
+    date: "Jun 2024",
+  },
+];
+
+export const languages = [
+  { name: "English", level: "Professional" },
+  { name: "Punjabi", level: "Native" },
+  { name: "Urdu", level: "Native" },
 ];

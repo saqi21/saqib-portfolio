@@ -5,7 +5,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Download } from "lucide-react";
-import { navLinks, resumeUrl } from "@/lib/constants";
+import { navLinks } from "@/lib/constants";
+import { generateResumePdf } from "@/lib/generateResumePdf";
 import Logo from "@/components/shared/Logo";
 
 export default function Navbar() {
@@ -91,17 +92,15 @@ export default function Navbar() {
               </Link>
             ))}
 
-            <motion.a
-              href={resumeUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            <motion.button
+              onClick={() => generateResumePdf()}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
               className="inline-flex items-center gap-2 rounded-full border border-primary-500/30 bg-primary-500/10 px-5 py-2 text-sm font-medium text-primary-400 transition-all duration-200 hover:border-primary-500/60 hover:bg-primary-500/20"
             >
               <Download size={16} />
               Resume
-            </motion.a>
+            </motion.button>
           </div>
 
           {/* Mobile Hamburger Button */}
@@ -187,15 +186,16 @@ export default function Navbar() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.05 + navLinks.length * 0.06 }}
               >
-                <a
-                  href={resumeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={() => {
+                    setMobileOpen(false);
+                    generateResumePdf();
+                  }}
                   className="inline-flex items-center gap-2 rounded-full border border-primary-500/30 bg-primary-500/10 px-6 py-3 text-lg font-medium text-primary-400 transition-all duration-200 hover:border-primary-500/60 hover:bg-primary-500/20"
                 >
                   <Download size={20} />
                   Resume
-                </a>
+                </button>
               </motion.div>
             </div>
           </motion.div>

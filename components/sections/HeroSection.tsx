@@ -20,7 +20,8 @@ import { useMousePosition } from "@/hooks/useMousePosition";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { useWebGL } from "@/hooks/useWebGL";
 import { personalInfo } from "@/data/personal";
-import { resumeUrl } from "@/lib/constants";
+import { generateResumePdf } from "@/lib/generateResumePdf";
+
 
 const Scene = dynamic(() => import("@/components/three/Scene"), {
   ssr: false,
@@ -131,17 +132,15 @@ export default function HeroSection() {
           className="mt-5 sm:mt-8 flex w-full flex-col items-center justify-center gap-3 px-4 sm:w-auto sm:flex-row sm:gap-4 sm:px-0"
           variants={itemVariants}
         >
-          <motion.a
-            href={resumeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+          <motion.button
+            onClick={() => generateResumePdf()}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.97 }}
             className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-primary-500 px-5 py-2.5 text-sm font-medium text-primary-400 transition-all duration-300 hover:bg-primary-500/10 hover:shadow-lg hover:shadow-primary-500/20 sm:w-auto sm:px-6 sm:py-3"
           >
             <Download className="h-4 w-4" />
             Download Resume
-          </motion.a>
+          </motion.button>
           <motion.div
             className="w-full sm:w-auto"
             whileHover={{ scale: 1.05, y: -2 }}

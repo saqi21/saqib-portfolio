@@ -19,6 +19,13 @@ export interface Experience {
   period: string;
   location: string;
   description: string;
+  highlights?: string[];
+}
+
+export interface Certificate {
+  name: string;
+  issuer: string;
+  date: string;
 }
 
 export interface Education {

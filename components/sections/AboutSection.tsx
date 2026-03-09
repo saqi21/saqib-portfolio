@@ -6,7 +6,8 @@ import { Download } from "lucide-react";
 
 import SectionHeader from "@/components/shared/SectionHeader";
 import ScrollReveal from "@/components/shared/ScrollReveal";
-import { basePath, resumeUrl } from "@/lib/constants";
+import { basePath } from "@/lib/constants";
+import { generateResumePdf } from "@/lib/generateResumePdf";
 
 const stats = [
   { value: "3+", label: "Years Experience" },
@@ -47,17 +48,15 @@ export default function AboutSection() {
                 or finding better ways to do things.
               </p>
               <div>
-                <motion.a
-                  href={resumeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <motion.button
+                  onClick={() => generateResumePdf()}
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.97 }}
                   className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary-500 to-primary-700 px-6 py-3 text-sm font-medium text-white transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/30 hover:brightness-110"
                 >
                   <Download className="h-4 w-4" />
                   Download Resume
-                </motion.a>
+                </motion.button>
               </div>
             </div>
           </ScrollReveal>

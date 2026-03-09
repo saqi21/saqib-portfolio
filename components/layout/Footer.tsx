@@ -73,7 +73,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="mt-12 flex flex-col items-center gap-2 border-t border-black/5 pt-8 text-center text-xs text-text-muted sm:flex-row sm:justify-between">
-          <p>&copy; 2024 SaQiB Zafar. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} SaQiB Zafar. All rights reserved.</p>
           <p>Built with Next.js &amp; Three.js</p>
         </div>
       </div>
