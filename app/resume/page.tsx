@@ -20,9 +20,17 @@ import { basePath, siteConfig } from "@/lib/constants";
 import PrintButton from "./PrintButton";
 
 export const metadata: Metadata = {
-  title: "Resume",
+  title: "Resume | SaQiB Zafar — SQA Engineer & Front End Developer",
   description:
-    "Resume of SaQiB Zafar — Front End Developer & SQA Engineer with expertise in React, Cypress, and test automation.",
+    "Download SaQiB Zafar's resume — SQA Engineer & Front End Developer with 3+ years of experience in Cypress automation, Selenium, React, Next.js, and TypeScript. View work experience, skills, certifications, and projects.",
+  keywords: [
+    "SaQiB Zafar Resume",
+    "SQA Engineer Resume",
+    "Front End Developer Resume",
+    "Cypress Automation Resume",
+    "QA Engineer CV",
+    "Download Resume",
+  ],
 };
 
 const skillCategories = [

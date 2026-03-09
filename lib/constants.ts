@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: "SaQiB Zafar",
-  title: "SaQiB Zafar - Front End & SQA Engineer",
+  title: "SaQiB Zafar | Front End Developer & SQA Engineer | React, Cypress, Selenium",
   description:
-    "Front End Developer & Software Quality Assurance Engineer specializing in React, TypeScript, Cypress automation, and comprehensive QA strategies.",
+    "SaQiB Zafar — Front End Developer & SQA Engineer with 3+ years of experience in React, Next.js, TypeScript, Cypress automation, Selenium, and Cucumber BDD. Specializing in test automation, manual testing, and building responsive web applications.",
   url: "https://saqi21.github.io/saqib-portfolio",
 };
 
