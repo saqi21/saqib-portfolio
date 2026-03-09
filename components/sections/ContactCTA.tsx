@@ -1,0 +1,87 @@
+"use client";
+
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { ArrowRight, Mail } from "lucide-react";
+
+import ScrollReveal from "@/components/shared/ScrollReveal";
+import { personalInfo } from "@/data/personal";
+
+export default function ContactCTA() {
+  return (
+    <section className="section-padding">
+      <div className="container mx-auto max-w-4xl px-4">
+        <ScrollReveal>
+          <div className="relative overflow-hidden rounded-3xl p-12 text-center md:p-16">
+            {/* Background glow */}
+            <div className="absolute inset-0 -z-10 rounded-3xl bg-gradient-to-br from-primary-500/10 via-surface-800 to-accent-500/10" />
+            <div className="absolute inset-0 -z-10 rounded-3xl border border-black/8" />
+
+            {/* Animated radial glow decoration */}
+            <motion.div
+              className="absolute left-1/2 top-1/2 -z-10 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-500/10 blur-[100px]"
+              animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            />
+
+            {/* Content */}
+            <motion.h2
+              className="gradient-text font-heading text-3xl font-bold md:text-5xl"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            >
+              Let&apos;s Work Together
+            </motion.h2>
+            <motion.p
+              className="mx-auto mt-4 max-w-lg text-lg text-text-secondary"
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false }}
+              transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            >
+              Have a project in mind? Let&apos;s create something amazing.
+            </motion.p>
+
+            {/* CTA Button */}
+            <motion.div
+              className="mt-8"
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false }}
+              transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <motion.div
+                className="inline-block"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.97 }}
+              >
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary-500 to-primary-700 px-8 py-3.5 text-sm font-medium text-white transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/30 hover:brightness-110"
+                >
+                  Get In Touch
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </motion.div>
+            </motion.div>
+
+            {/* Email */}
+            <motion.a
+              href={`mailto:${personalInfo.email}`}
+              className="mt-4 inline-flex items-center gap-1.5 text-sm text-text-muted transition-colors duration-200 hover:text-primary-400"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: false }}
+              transition={{ duration: 0.6, delay: 0.45 }}
+            >
+              <Mail className="h-3.5 w-3.5" />
+              {personalInfo.email}
+            </motion.a>
+          </div>
+        </ScrollReveal>
+      </div>
+    </section>
+  );
+}
