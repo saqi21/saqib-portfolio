@@ -96,7 +96,7 @@ export default function Navbar() {
               onClick={() => generateResumePdf()}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
-              className="inline-flex items-center gap-2 rounded-full border border-primary-500/30 bg-primary-500/10 px-5 py-2 text-sm font-medium text-primary-400 transition-all duration-200 hover:border-primary-500/60 hover:bg-primary-500/20"
+              className="cursor-pointer inline-flex items-center gap-2 rounded-full border border-primary-500/30 bg-primary-500/10 px-5 py-2 text-sm font-medium text-primary-400 transition-all duration-200 hover:border-primary-500/60 hover:bg-primary-500/20"
             >
               <Download size={16} />
               Resume
@@ -191,7 +191,7 @@ export default function Navbar() {
                     setMobileOpen(false);
                     generateResumePdf();
                   }}
-                  className="inline-flex items-center gap-2 rounded-full border border-primary-500/30 bg-primary-500/10 px-6 py-3 text-lg font-medium text-primary-400 transition-all duration-200 hover:border-primary-500/60 hover:bg-primary-500/20"
+                  className="cursor-pointer inline-flex items-center gap-2 rounded-full border border-primary-500/30 bg-primary-500/10 px-6 py-3 text-lg font-medium text-primary-400 transition-all duration-200 hover:border-primary-500/60 hover:bg-primary-500/20"
                 >
                   <Download size={20} />
                   Resume
