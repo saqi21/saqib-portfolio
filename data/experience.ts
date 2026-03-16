@@ -1,5 +1,8 @@
 import { Experience, Education, Certificate } from "@/types";
 
+const currentDate = new Date();
+const currentMonthYear = `${currentDate.toLocaleString("en-US", { month: "short" })} ${currentDate.getFullYear()}`;
+
 export const experiences: Experience[] = [
   {
     title: "Software Quality Assurance Engineer",
@@ -23,7 +26,7 @@ export const experiences: Experience[] = [
     title: "Automation Software Quality Assurance Engineer",
     company: "Nullbrainer",
     period: "Dec 2025 - Present",
-    location: "Remote - Lahore, Pakistan",
+    location: "Remote - USA",
     description:
       "Building and maintaining end-to-end test automation using Cypress with Cucumber (BDD), writing feature files and step definitions to ensure comprehensive coverage across the Noldor insurance platform.",
     highlights: [
@@ -51,7 +54,7 @@ export const experiences: Experience[] = [
     title: "Front End Developer",
     company: "Shoretec Solutions",
     period: "Jun 2020 - May 2023",
-    location: "Remote (USA)",
+    location: "Remote - USA",
     description:
       "Worked on the Worship Support Network and Walexport projects, creating responsive and user-friendly interfaces with front-end best practices.",
     highlights: [
