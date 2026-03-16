@@ -2,20 +2,6 @@ import { Experience, Education, Certificate } from "@/types";
 
 export const experiences: Experience[] = [
   {
-    title: "Automation Software Quality Assurance Engineer",
-    company: "Nullbrainer",
-    period: "Dec 2025 - Present",
-    location: "Remote - Lahore, Pakistan",
-    description:
-      "Building and maintaining end-to-end test automation using Cypress with Cucumber (BDD), writing feature files and step definitions to ensure comprehensive coverage across the Noldor insurance platform.",
-    highlights: [
-      "Built Cypress + Cucumber BDD automation framework from scratch using Nx monorepo",
-      "Automated 50+ E2E scenarios across Valinor, Carrier, and Data Client portals",
-      "Integrated automated test suite with CI/CD pipelines for continuous quality assurance",
-      "Designed modular Page Object Model architecture enabling rapid test expansion",
-    ],
-  },
-  {
     title: "Software Quality Assurance Engineer",
     company: "Devsloop",
     period: "Nov 2022 - Present",
@@ -31,6 +17,20 @@ export const experiences: Experience[] = [
       "Performed in-depth codebase testing by analyzing code logic and validating edge cases",
       "Managed defect tracking and prioritization, utilizing local database queries for efficient resolution",
       "Created detailed bug reports and enhanced team efficiency during agile sprints",
+    ],
+  },
+  {
+    title: "Automation Software Quality Assurance Engineer",
+    company: "Nullbrainer",
+    period: "Dec 2025 - Present",
+    location: "Remote - Lahore, Pakistan",
+    description:
+      "Building and maintaining end-to-end test automation using Cypress with Cucumber (BDD), writing feature files and step definitions to ensure comprehensive coverage across the Noldor insurance platform.",
+    highlights: [
+      "Built Cypress + Cucumber BDD automation framework from scratch using Nx monorepo",
+      "Automated 50+ E2E scenarios across Valinor, Carrier, and Data Client portals",
+      "Integrated automated test suite with CI/CD pipelines for continuous quality assurance",
+      "Designed modular Page Object Model architecture enabling rapid test expansion",
     ],
   },
   {

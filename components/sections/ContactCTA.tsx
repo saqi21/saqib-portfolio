@@ -26,7 +26,7 @@ export default function ContactCTA() {
 
             {/* Content */}
             <motion.h2
-              className="gradient-text font-heading text-3xl font-bold md:text-5xl"
+              className="gradient-text p-2.5 font-heading text-3xl font-bold md:text-5xl"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}

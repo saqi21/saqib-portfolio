@@ -49,13 +49,27 @@ export interface Service {
   icon: string;
 }
 
+export interface ArticleSection {
+  heading: string;
+  content?: string;
+  items?: { title: string; description: string }[];
+}
+
 export interface Article {
   id: string;
+  slug: string;
   title: string;
   description: string;
   image: string;
   readTime: string;
-  url: string;
+  date: string;
+  tags: string[];
+  url?: string;
+  content?: {
+    intro: string;
+    sections: ArticleSection[];
+    conclusion: string;
+  };
 }
 
 export interface ContactFormData {
