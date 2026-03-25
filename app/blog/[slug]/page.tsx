@@ -11,6 +11,9 @@ import {
 } from "lucide-react";
 
 import ScrollReveal from "@/components/shared/ScrollReveal";
+import ReadingProgress from "@/components/blog/ReadingProgress";
+import ShareButtons from "@/components/blog/ShareButtons";
+import ConnectCTA from "@/components/blog/ConnectCTA";
 import { articles } from "@/data/articles";
 import { siteConfig, basePath } from "@/lib/constants";
 
@@ -32,12 +35,22 @@ export async function generateMetadata({
   return {
     title: article.title,
     description: article.description,
+    keywords: article.tags.join(", "),
     openGraph: {
       title: article.title,
       description: article.description,
       url: `${siteConfig.url}/blog/${slug}`,
       type: "article",
+      publishedTime: article.date,
+      authors: ["SaQiB Zafar"],
+      tags: article.tags,
       images: [{ url: article.image, width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: article.title,
+      description: article.description,
+      images: [article.image],
     },
   };
 }
@@ -66,8 +79,12 @@ export default async function ArticlePage({
       ? articlesWithContent[contentIndex + 1]
       : null;
 
+  const articleUrl = `${siteConfig.url}/blog/${slug}`;
+
   return (
     <article className="min-h-screen">
+      <ReadingProgress />
+
       {/* Back Button */}
       <div className="mx-auto max-w-3xl px-4 pt-28">
         <ScrollReveal>
@@ -104,15 +121,18 @@ export default async function ArticlePage({
             </h1>
 
             {/* Meta */}
-            <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-text-muted">
-              <span className="flex items-center gap-1.5">
-                <Calendar className="h-4 w-4" />
-                {article.date}
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Clock className="h-4 w-4" />
-                {article.readTime}
-              </span>
+            <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
+              <div className="flex flex-wrap items-center gap-4 text-sm text-text-muted">
+                <span className="flex items-center gap-1.5">
+                  <Calendar className="h-4 w-4" />
+                  {article.date}
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Clock className="h-4 w-4" />
+                  {article.readTime}
+                </span>
+              </div>
+              <ShareButtons url={articleUrl} title={article.title} />
             </div>
           </ScrollReveal>
         </div>
@@ -141,9 +161,10 @@ export default async function ArticlePage({
         <div className="mx-auto max-w-3xl px-4">
           {/* Intro */}
           <ScrollReveal>
-            <p className="text-lg leading-relaxed text-text-secondary">
-              {content.intro}
-            </p>
+            <div
+              className="prose-custom text-lg leading-relaxed text-text-secondary"
+              dangerouslySetInnerHTML={{ __html: content.intro }}
+            />
           </ScrollReveal>
 
           {/* Sections */}
@@ -155,9 +176,10 @@ export default async function ArticlePage({
                 </h2>
 
                 {section.content && (
-                  <p className="mt-4 leading-relaxed text-text-secondary">
-                    {section.content}
-                  </p>
+                  <div
+                    className="prose-custom mt-4 leading-relaxed text-text-secondary"
+                    dangerouslySetInnerHTML={{ __html: section.content }}
+                  />
                 )}
 
                 {section.items && (
@@ -173,9 +195,10 @@ export default async function ArticlePage({
                           </span>
                           {item.title}
                         </h3>
-                        <p className="mt-2 leading-relaxed text-text-secondary">
-                          {item.description}
-                        </p>
+                        <div
+                          className="prose-custom mt-2 leading-relaxed text-text-secondary"
+                          dangerouslySetInnerHTML={{ __html: item.description }}
+                        />
                       </div>
                     ))}
                   </div>
@@ -190,9 +213,10 @@ export default async function ArticlePage({
               <h2 className="font-heading text-2xl font-bold text-text-primary">
                 Conclusion
               </h2>
-              <p className="mt-4 leading-relaxed text-text-secondary">
-                {content.conclusion}
-              </p>
+              <div
+                className="prose-custom mt-4 leading-relaxed text-text-secondary"
+                dangerouslySetInnerHTML={{ __html: content.conclusion }}
+              />
             </div>
           </ScrollReveal>
 
@@ -201,26 +225,36 @@ export default async function ArticlePage({
 
           {/* Author */}
           <ScrollReveal>
-            <div className="glass flex items-center gap-4 rounded-2xl p-6">
-              <div className="h-14 w-14 shrink-0 overflow-hidden rounded-full">
-                <Image
-                  src={`${basePath}/images/my-profile.png`}
-                  alt="SaQiB Zafar"
-                  width={56}
-                  height={56}
-                  className="h-full w-full object-cover"
-                />
+            <div className="glass flex items-center justify-between rounded-2xl p-6">
+              <div className="flex items-center gap-4">
+                <div className="h-14 w-14 shrink-0 overflow-hidden rounded-full">
+                  <Image
+                    src={`${basePath}/images/profile-white-bg.png`}
+                    alt="SaQiB Zafar"
+                    width={56}
+                    height={56}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div>
+                  <p className="font-heading font-semibold text-text-primary">
+                    SaQiB Zafar
+                  </p>
+                  <p className="text-sm text-text-muted">
+                    Software Engineer — SQA & Frontend Developer
+                  </p>
+                </div>
               </div>
-              <div>
-                <p className="font-heading font-semibold text-text-primary">
-                  SaQiB Zafar
-                </p>
-                <p className="text-sm text-text-muted">
-                  Software Engineer — SQA & Frontend Developer
-                </p>
+              <div className="hidden sm:block">
+                <ShareButtons url={articleUrl} title={article.title} />
               </div>
             </div>
           </ScrollReveal>
+
+          {/* Connect CTA */}
+          <div className="mt-8">
+            <ConnectCTA />
+          </div>
         </div>
       </section>
 
@@ -232,6 +266,7 @@ export default async function ArticlePage({
               {prevArticle ? (
                 <Link
                   href={`/blog/${prevArticle.slug}`}
+                  scroll={true}
                   className="glass group flex items-center gap-3 rounded-xl p-4 transition-all duration-300 hover:border-primary-500/20"
                 >
                   <ArrowLeft className="h-5 w-5 shrink-0 text-text-muted transition-colors group-hover:text-primary-400" />
@@ -248,6 +283,7 @@ export default async function ArticlePage({
               {nextArticle ? (
                 <Link
                   href={`/blog/${nextArticle.slug}`}
+                  scroll={true}
                   className="glass group flex items-center justify-end gap-3 rounded-xl p-4 text-right transition-all duration-300 hover:border-primary-500/20"
                 >
                   <div className="min-w-0">

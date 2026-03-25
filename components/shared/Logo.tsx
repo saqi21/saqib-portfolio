@@ -7,7 +7,7 @@ export default function Logo({ className = "" }: { className?: string }) {
       {/* Rounded profile image */}
       <div className="h-8 w-8 shrink-0 overflow-hidden rounded-full ring-2 ring-primary-500/40">
         <Image
-          src={`${basePath}/images/my-profile.png`}
+          src={`${basePath}/images/profile-white-bg.png`}
           alt="SaQiB Zafar"
           width={32}
           height={32}

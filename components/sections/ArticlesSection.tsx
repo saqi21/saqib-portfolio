@@ -3,15 +3,22 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight, ExternalLink, Flame } from "lucide-react";
 
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import SectionHeader from "@/components/shared/SectionHeader";
 import { articles } from "@/data/articles";
 
+function isRecent(dateStr: string): boolean {
+  const articleDate = new Date(dateStr);
+  const now = new Date();
+  const diffDays = (now.getTime() - articleDate.getTime()) / (1000 * 60 * 60 * 24);
+  return diffDays <= 30;
+}
+
 export default function ArticlesSection() {
   return (
-    <section className="section-padding">
+    <section id="articles" className="section-padding">
       <div className="container mx-auto max-w-6xl px-4">
         <ScrollReveal>
           <SectionHeader
@@ -23,10 +30,11 @@ export default function ArticlesSection() {
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {articles.slice(0, 4).map((article, index) => {
             const hasContent = !!article.content;
+            const fresh = isRecent(article.date);
 
             const cardContent = (
               <motion.div
-                className="glass overflow-hidden rounded-2xl border border-transparent transition-colors duration-300 hover:border-primary-500/20"
+                className="glass relative overflow-hidden rounded-2xl border border-transparent transition-colors duration-300 hover:border-primary-500/20"
                 whileHover={{
                   y: -6,
                   boxShadow: "0 12px 40px rgba(102, 126, 234, 0.1)",
@@ -34,7 +42,7 @@ export default function ArticlesSection() {
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
                 {/* Image Area */}
-                <div className="h-40 w-full overflow-hidden">
+                <div className="relative h-40 w-full overflow-hidden">
                   <Image
                     src={article.image}
                     alt={article.title}
@@ -42,21 +50,33 @@ export default function ArticlesSection() {
                     height={160}
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
+                  {/* Fresh Badge */}
+                  {fresh && (
+                    <span className="absolute left-2 top-2 inline-flex items-center gap-1 rounded-full bg-accent-500/90 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow-lg backdrop-blur-sm">
+                      <Flame className="h-3 w-3" />
+                      Fresh
+                    </span>
+                  )}
                 </div>
 
                 {/* Content */}
                 <div className="p-4">
-                  <span className="text-xs text-primary-400">
-                    {article.readTime}
-                  </span>
-                  <h3 className="mt-1 line-clamp-2 font-heading text-sm font-semibold text-text-primary">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs text-primary-400">
+                      {article.readTime}
+                    </span>
+                    <span className="text-xs text-text-muted">
+                      {article.date}
+                    </span>
+                  </div>
+                  <h3 className="mt-1.5 line-clamp-2 font-heading text-sm font-semibold text-text-primary">
                     {article.title}
                   </h3>
-                  <div className="mt-3 flex items-center gap-1 text-xs text-text-muted transition-colors duration-200 group-hover:text-primary-400">
+                  <div className="mt-3 flex items-center gap-1 text-xs font-medium text-primary-400 transition-all duration-200 group-hover:gap-2">
                     {hasContent ? (
                       <>
-                        <span>Read article</span>
-                        <ArrowRight className="h-3 w-3" />
+                        <span>Read the Full Breakdown</span>
+                        <ArrowRight className="h-3 w-3 transition-transform duration-200 group-hover:translate-x-1" />
                       </>
                     ) : (
                       <>

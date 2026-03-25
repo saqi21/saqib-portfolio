@@ -4,9 +4,9 @@ import ExperienceSection from "@/components/sections/ExperienceSection";
 import SkillsSection from "@/components/sections/SkillsSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import ProjectsMarquee from "@/components/sections/ProjectsMarquee";
+import ArticlesSection from "@/components/sections/ArticlesSection";
 import ProjectsPreview from "@/components/sections/ProjectsPreview";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
-import ArticlesSection from "@/components/sections/ArticlesSection";
 import ContactCTA from "@/components/sections/ContactCTA";
 
 export default function Home() {
@@ -18,9 +18,9 @@ export default function Home() {
       <SkillsSection />
       <ServicesSection />
       <ProjectsMarquee />
+      <ArticlesSection />
       <ProjectsPreview />
       <TestimonialsSection />
-      <ArticlesSection />
       <ContactCTA />
     </>
   );

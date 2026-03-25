@@ -36,7 +36,7 @@ function escapeHtml(str: string) {
 }
 
 function buildResumeHtml(): string {
-  const profileSrc = `${window.location.origin}${basePath}/images/my-profile.png`;
+  const profileSrc = `${window.location.origin}${basePath}/images/profile-white-bg.png`;
 
   const experiencesHtml = experiences
     .map((exp) => {

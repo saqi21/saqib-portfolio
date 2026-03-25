@@ -78,7 +78,7 @@ export default function ResumePage() {
           <header className="border-b-2 border-gray-900 pb-3">
             <div className="flex items-center gap-4">
               <Image
-                src={`${basePath}/images/my-profile.png`}
+                src={`${basePath}/images/profile-white-bg.png`}
                 alt="Saqib Zafar"
                 width={64}
                 height={64}

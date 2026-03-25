@@ -81,7 +81,7 @@ export default function AboutSection() {
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 >
                   <Image
-                    src={`${basePath}/images/my-profile.png`}
+                    src={`${basePath}/images/profile-white-bg.png`}
                     alt="SaQiB Zafar"
                     width={320}
                     height={320}

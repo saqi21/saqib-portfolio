@@ -3,6 +3,7 @@ import { Inter, Poppins } from "next/font/google";
 import { siteConfig, basePath } from "@/lib/constants";
 import Providers from "./providers";
 import Navbar from "@/components/layout/Navbar";
+import FeaturedBlogBanner from "@/components/sections/FeaturedBlogBanner";
 import Footer from "@/components/layout/Footer";
 import "./globals.css";
 
@@ -105,7 +106,7 @@ export default function RootLayout({
                 name: "SaQiB Zafar",
                 alternateName: "Saqib Zafar",
                 url: siteConfig.url,
-                image: `${siteConfig.url}/images/my-profile.png`,
+                image: `${siteConfig.url}/images/profile-white-bg.png`,
                 email: "saqibmehar41@gmail.com",
                 telephone: "+(92) 341-6796766",
                 jobTitle: "Front End Developer & Software Quality Assurance Engineer",
@@ -168,6 +169,7 @@ export default function RootLayout({
           <Navbar />
           <main>{children}</main>
           <Footer />
+          <FeaturedBlogBanner />
         </Providers>
       </body>
     </html>

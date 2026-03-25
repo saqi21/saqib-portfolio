@@ -31,6 +31,11 @@
   --animate-marquee: marquee 30s linear infinite;
 }
 
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-20px); }
@@ -118,4 +123,42 @@ body {
   .section-padding {
     padding: 4rem 0;
   }
+}
+
+/* Blog prose styles */
+.prose-custom p {
+  margin-bottom: 1rem;
+}
+.prose-custom p:last-child {
+  margin-bottom: 0;
+}
+.prose-custom strong {
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+.prose-custom em {
+  color: var(--color-primary-400);
+  font-style: italic;
+}
+.prose-custom mark {
+  background: linear-gradient(120deg, rgba(102, 126, 234, 0.15) 0%, rgba(102, 126, 234, 0.25) 100%);
+  color: var(--color-primary-400);
+  padding: 0.1em 0.35em;
+  border-radius: 0.25em;
+  font-weight: 500;
+}
+.prose-custom blockquote {
+  border-left: 3px solid var(--color-primary-500);
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+.prose-custom code {
+  background: rgba(102, 126, 234, 0.1);
+  color: var(--color-primary-400);
+  padding: 0.15em 0.4em;
+  border-radius: 0.25em;
+  font-size: 0.9em;
+  font-weight: 500;
 }

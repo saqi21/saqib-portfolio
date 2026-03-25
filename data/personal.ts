@@ -14,7 +14,7 @@ export const personalInfo: PersonalInfo = {
     },
     {
       platform: "linkedin",
-      url: "https://www.linkedin.com/in/saqib-zafar-6966a7225/",
+      url: "https://www.linkedin.com/in/saqibzafar-sqa/",
       icon: "Linkedin",
     },
     {
