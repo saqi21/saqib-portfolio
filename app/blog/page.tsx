@@ -25,7 +25,7 @@ export default function BlogPage() {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <section className="pb-12 pt-32">
+      <section className="pb-12 pt-36">
         <div className="container mx-auto max-w-7xl px-4">
           <ScrollReveal>
             <SectionHeader

@@ -45,15 +45,16 @@ export default function Navbar() {
       <motion.header
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? "bg-surface-950/95 shadow-lg shadow-black/5 backdrop-blur-md"
-            : "bg-surface-950/60 backdrop-blur-sm"
-        }`}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        className="fixed top-0 left-0 right-0 z-50"
       >
+        <div className="mx-auto max-w-7xl px-3 pt-3 sm:px-4">
         <nav
-          className={`mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 transition-all duration-500 ${scrolled ? "py-3" : "py-4"}`}
+          className={`navbar-3d relative flex items-center justify-between rounded-xl border px-5 transition-all duration-500 sm:px-7 ${
+            scrolled
+              ? "border-white/60 bg-white/90 py-2.5 backdrop-blur-2xl"
+              : "border-white/40 bg-white/70 py-3 backdrop-blur-xl"
+          }`}
         >
           {/* Logo */}
           <Link href="/">
@@ -135,6 +136,7 @@ export default function Navbar() {
             </AnimatePresence>
           </motion.button>
         </nav>
+        </div>
       </motion.header>
 
       {/* Mobile Menu Overlay — outside header so it covers full screen */}

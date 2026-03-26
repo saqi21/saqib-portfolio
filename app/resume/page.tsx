@@ -58,7 +58,7 @@ const skillCategories = [
 
 export default function ResumePage() {
   return (
-    <div className="min-h-screen bg-surface-950 pt-24 pb-20 print:bg-white print:pt-0 print:pb-0">
+    <div className="min-h-screen bg-surface-950 pt-28 pb-20 print:bg-white print:pt-0 print:pb-0">
       {/* Floating Buttons */}
       <PrintButton />
 

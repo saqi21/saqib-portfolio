@@ -84,7 +84,7 @@ export default function ContactPage() {
   };
 
   return (
-    <section className="section-padding pt-32">
+    <section className="section-padding pt-36">
       <div className="mx-auto max-w-6xl px-4">
         <ScrollReveal>
           <SectionHeader

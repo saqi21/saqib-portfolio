@@ -3,7 +3,6 @@ import { Inter, Poppins } from "next/font/google";
 import { siteConfig, basePath } from "@/lib/constants";
 import Providers from "./providers";
 import Navbar from "@/components/layout/Navbar";
-import FeaturedBlogBanner from "@/components/sections/FeaturedBlogBanner";
 import Footer from "@/components/layout/Footer";
 import "./globals.css";
 
@@ -169,7 +168,6 @@ export default function RootLayout({
           <Navbar />
           <main>{children}</main>
           <Footer />
-          <FeaturedBlogBanner />
         </Providers>
       </body>
     </html>

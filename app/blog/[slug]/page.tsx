@@ -86,7 +86,7 @@ export default async function ArticlePage({
       <ReadingProgress />
 
       {/* Back Button */}
-      <div className="mx-auto max-w-3xl px-4 pt-28">
+      <div className="mx-auto max-w-3xl px-4 pt-32">
         <ScrollReveal>
           <Link
             href="/blog"

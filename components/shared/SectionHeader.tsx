@@ -20,7 +20,7 @@ export default function SectionHeader({
   return (
     <div ref={ref} className={centered ? "text-center" : ""}>
       <motion.h2
-        className="gradient-text font-heading text-3xl font-bold md:text-4xl"
+        className="gradient-text pt-12 font-heading text-3xl font-bold md:text-4xl"
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}

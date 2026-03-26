@@ -81,7 +81,7 @@ export default async function ProjectDetailPage({
   return (
     <article className="min-h-screen">
       {/* Back Button */}
-      <div className="mx-auto max-w-5xl px-4 pt-28">
+      <div className="mx-auto max-w-5xl px-4 pt-32">
         <ScrollReveal>
           <Link
             href="/projects"
