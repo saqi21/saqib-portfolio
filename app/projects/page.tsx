@@ -76,7 +76,7 @@ export default function ProjectsPage() {
                 >
                   <div className="glass flex h-full flex-col overflow-hidden rounded-2xl border border-transparent transition-all duration-300 hover:border-primary-500/20 hover:shadow-lg hover:shadow-primary-500/5">
                     {/* Logo Area */}
-                    <div className="flex h-48 items-center justify-center bg-surface-800 p-8">
+                    <div className="flex h-48 items-center justify-center bg-[#e2e8f0] p-8">
                       <Image
                         src={work.logo}
                         alt={work.name}

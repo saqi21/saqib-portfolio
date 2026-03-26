@@ -153,7 +153,7 @@ export default function ExperienceSection() {
                           </div>
                         </div>
                       </div>
-                      <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-green-500/10 px-3 py-1 text-xs font-medium text-green-400">
+                      <span className="inline-flex w-fit shrink-0 items-center gap-1.5 self-start rounded-full bg-green-500/10 px-3 py-1 text-xs font-medium text-green-400 sm:self-auto">
                         <CheckCircle className="h-3 w-3" />
                         Completed
                       </span>

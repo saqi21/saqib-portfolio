@@ -61,7 +61,7 @@ export default function TestimonialsSection() {
   // Auto-play
   useEffect(() => {
     if (isPaused) return;
-    const timer = setInterval(next, 5000);
+    const timer = setInterval(next, 7000);
     return () => clearInterval(timer);
   }, [next, isPaused]);
 
@@ -94,8 +94,8 @@ export default function TestimonialsSection() {
                 animate="center"
                 exit="exit"
                 transition={{
-                  x: { type: "spring", stiffness: 300, damping: 30 },
-                  opacity: { duration: 0.2 },
+                  x: { type: "spring", stiffness: 200, damping: 25 },
+                  opacity: { duration: 0.5 },
                 }}
               >
                 <div className="glass group relative rounded-2xl border border-transparent p-8 transition-colors duration-300 hover:border-primary-500/20 md:p-10">

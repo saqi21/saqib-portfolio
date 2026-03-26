@@ -2,30 +2,12 @@ import { Experience, Education, Certificate } from "@/types";
 
 export const experiences: Experience[] = [
   {
-    title: "Software Quality Assurance Engineer",
-    company: "Devsloop",
-    period: "Nov 2022 - Present",
-    location: "Gujranwala, Punjab, Pakistan",
-    description:
-      "Lead SQA for Beambox, EasyLlama, Lumimeds & DoubleList projects. Automated testing processes with Cypress, developed detailed test plans, and validated subscription and billing functionalities.",
-    highlights: [
-      "Lead SQA - Beambox, EasyLlama, Lumimeds & DoubleList projects",
-      "Automated test processes using Selenium WebDriver and Java, reducing manual testing effort",
-      "Increased automation coverage from 0% to 80% of core flows at Beambox",
-      "Reduced manual regression testing time from 3 hours to 40 minutes",
-      "Mentored junior QA engineers in manual and automated testing best practices",
-      "Performed in-depth codebase testing by analyzing code logic and validating edge cases",
-      "Managed defect tracking and prioritization, utilizing local database queries for efficient resolution",
-      "Created detailed bug reports and enhanced team efficiency during agile sprints",
-    ],
-  },
-  {
-    title: "Automation Software Quality Assurance Engineer",
+    title: "Automation SQA Engineer",
     company: "Nullbrainer",
     period: "Dec 2025 - Present",
     location: "Remote - USA",
     description:
-      "Building and maintaining end-to-end test automation using Cypress with Cucumber (BDD), writing feature files and step definitions to ensure comprehensive coverage across the Noldor insurance platform.",
+      "Building and maintaining end-to-end test automation using Cypress with Cucumber (BDD) for the Noldor insurance platform. Writing feature files and step definitions to ensure comprehensive coverage across multiple portals.",
     highlights: [
       "Built Cypress + Cucumber BDD automation framework from scratch using Nx monorepo",
       "Automated 50+ E2E scenarios across Valinor, Carrier, and Data Client portals",
@@ -34,17 +16,20 @@ export const experiences: Experience[] = [
     ],
   },
   {
-    title: "Ruby on Rails Frontend Engineer",
+    title: "Lead SQA Engineer & Frontend Developer",
     company: "Devsloop",
-    period: "Jul 2022 - Nov 2022",
+    period: "Jul 2022 - Nov 2025",
     location: "Gujranwala, Punjab, Pakistan",
     description:
-      "At EasyLlama, leveraged Ruby on Rails' MVC framework to create responsive, user-focused interfaces. Developed and maintained scalable APIs, managed routes, and optimized code for seamless client-server integration.",
+      "Progressed from Frontend Engineer to Lead SQA across multiple client projects including Beambox, EasyLlama, Lumimeds, and DoubleList. Built automation frameworks, mentored junior engineers, and delivered front-end features.",
     highlights: [
-      "Leveraged RoR's MVC structure for building robust web applications with optimized performance",
-      "Developed responsive, visually appealing interfaces ensuring seamless experience across devices",
-      "Created, maintained, and integrated RESTful APIs supporting frontend functionalities",
-      "Managed routes, backend tasks, and frontend integration for cohesive web applications",
+      "Led QA for Beambox, EasyLlama, Lumimeds & DoubleList — owning test strategy, execution, and automation",
+      "Increased automation coverage from 0% to 80% of core flows at Beambox using Cypress",
+      "Reduced manual regression testing time from 3 hours to 40 minutes",
+      "Achieved zero post-deployment critical bugs for 5 consecutive releases at Lumimeds",
+      "Mentored junior QA engineers in manual and automated testing best practices",
+      "Built responsive front-end interfaces for EasyLlama using Ruby on Rails MVC",
+      "Created and integrated RESTful APIs supporting frontend functionalities",
     ],
   },
   {

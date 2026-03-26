@@ -15,33 +15,33 @@ export default function SectionHeader({
   centered = true,
 }: SectionHeaderProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: false, amount: 0.5 });
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   return (
     <div ref={ref} className={centered ? "text-center" : ""}>
       <motion.h2
-        className="gradient-text pt-12 font-heading text-3xl font-bold md:text-4xl"
-        initial={{ opacity: 0, y: 20 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        className="gradient-text font-heading text-3xl font-bold md:text-4xl"
+        initial={{ opacity: 0, y: 8 }}
+        animate={isInView ? { opacity: 1, y: 0 } : undefined}
+        transition={{ duration: 0.2, ease: "easeOut" }}
       >
         {title}
       </motion.h2>
       <motion.div
-        className={`mt-4 h-1 rounded-full bg-gradient-to-r from-primary-500 to-accent-500 ${
+        className={`mt-3 h-1 rounded-full bg-gradient-to-r from-primary-500 to-accent-500 ${
           centered ? "mx-auto" : ""
         }`}
         initial={{ width: 0 }}
-        animate={isInView ? { width: 80 } : { width: 0 }}
-        transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+        animate={isInView ? { width: 80 } : undefined}
+        transition={{ duration: 0.25, delay: 0.05, ease: "easeOut" }}
       />
       <motion.p
-        className={`mt-4 max-w-2xl text-text-secondary ${
+        className={`mt-3 max-w-2xl text-text-secondary ${
           centered ? "mx-auto" : ""
         }`}
-        initial={{ opacity: 0, y: 15 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
-        transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+        initial={{ opacity: 0 }}
+        animate={isInView ? { opacity: 1 } : undefined}
+        transition={{ duration: 0.2, delay: 0.08, ease: "easeOut" }}
       >
         {subtitle}
       </motion.p>

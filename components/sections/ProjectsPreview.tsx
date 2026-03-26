@@ -21,7 +21,7 @@ function ProjectCard({ work }: { work: (typeof works)[number] }) {
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >
         {/* Logo Area */}
-        <div className="flex aspect-[16/9] items-center justify-center bg-surface-800 p-6 md:aspect-[4/3]">
+        <div className="flex aspect-[16/9] items-center justify-center bg-[#e2e8f0] p-6 md:aspect-[4/3]">
           <Image
             src={work.logo}
             alt={work.name}
@@ -91,13 +91,13 @@ export default function ProjectsPreview() {
     <section id="projects" className="section-padding">
       <div className="container mx-auto max-w-6xl px-4">
         <ScrollReveal>
-          <div className="flex items-end justify-between">
+          <div>
             <SectionHeader
               title="Featured Work"
               subtitle="Recent projects I've worked on"
             />
             {totalPages > 1 && (
-              <div className="mb-1 flex gap-2">
+              <div className="mt-6 flex justify-center gap-2 sm:mt-0 sm:justify-end">
                 <motion.button
                   onClick={handlePrev}
                   whileHover={{ scale: 1.1 }}

@@ -29,8 +29,8 @@ export default function ContactCTA() {
               className="gradient-text p-2.5 font-heading text-3xl font-bold md:text-5xl"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             >
               Let&apos;s Build Something Great
             </motion.h2>
@@ -38,8 +38,8 @@ export default function ContactCTA() {
               className="mx-auto mt-4 max-w-lg text-lg text-text-secondary"
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
-              transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.35, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
             >
               Need a QA engineer who builds? Or a developer who tests?
               Let&apos;s talk about your project.
@@ -50,30 +50,30 @@ export default function ContactCTA() {
               className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4"
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
-              transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.35, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
             >
               <motion.div
-                className="inline-block"
+                className="w-full sm:w-auto"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.97 }}
               >
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary-500 to-primary-700 px-8 py-3.5 text-sm font-medium text-white transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/30 hover:brightness-110"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary-500 to-primary-700 px-8 py-3.5 text-sm font-medium text-white transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/30 hover:brightness-110 sm:w-auto"
                 >
                   <Calendar className="h-4 w-4" />
                   Start a Project
                 </Link>
               </motion.div>
               <motion.div
-                className="inline-block"
+                className="w-full sm:w-auto"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.97 }}
               >
                 <a
                   href={`mailto:${personalInfo.email}`}
-                  className="inline-flex items-center gap-2 rounded-full border border-primary-500/30 px-8 py-3.5 text-sm font-medium text-primary-400 transition-all duration-300 hover:bg-primary-500/10"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-primary-500/30 px-8 py-3.5 text-sm font-medium text-primary-400 transition-all duration-300 hover:bg-primary-500/10 sm:w-auto"
                 >
                   <Mail className="h-4 w-4" />
                   Email Me Directly

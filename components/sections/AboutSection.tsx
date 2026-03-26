@@ -1,68 +1,87 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { Download } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 import SectionHeader from "@/components/shared/SectionHeader";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import { basePath } from "@/lib/constants";
 
 const stats = [
-  { value: "3+", label: "Years Experience" },
-  { value: "80%", label: "Automation Coverage at Beambox" },
-  { value: "0", label: "Critical Bugs Across 5 Releases" },
+  { value: "5+", label: "Years in Tech" },
+  { value: "6+", label: "Products Shipped" },
+  { value: "80%", label: "Automation Coverage" },
 ];
 
 export default function AboutSection() {
-  const handleDownloadResume = async () => {
-    const { generateResumePdf } = await import("@/lib/generateResumePdf");
-    generateResumePdf();
-  };
-
   return (
     <section id="about" className="section-padding">
       <div className="mx-auto max-w-6xl px-4">
         <ScrollReveal>
           <SectionHeader
             title="About Me"
-            subtitle="Building flawless interfaces. Breaking bugs before users do."
+            subtitle="The developer who tests. The tester who builds."
           />
         </ScrollReveal>
 
         <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-2">
-          {/* Bio (shows second on mobile, first on desktop) */}
+          {/* Bio */}
           <ScrollReveal direction="left" delay={0.2} className="order-2 lg:order-1">
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-5">
               <p className="text-lg leading-relaxed text-text-secondary">
-                I help product teams ship confidently. Whether that means
-                building responsive UIs in React/Next.js or designing
-                automation frameworks that catch bugs before users do, I
-                obsess over the details that make software reliable.
+                Most QA engineers find testing. I came from the other side — I
+                was a frontend developer building interfaces for US-based
+                clients when I noticed a pattern: the bugs I kept fixing should
+                have been caught long before they reached me. That pulled me
+                into QA, and I never looked back.
+              </p>
+              <p className="leading-relaxed text-text-secondary">
+                Now I work at the intersection of both disciplines. I build
+                full-stack applications using modern frameworks like React,
+                Next.js, and Ruby on Rails — then architect the Cypress
+                automation frameworks that keep it all honest. The results
+                speak for themselves — automation coverage from{" "}
+                <span className="font-semibold text-primary-400">
+                  0% to 80%
+                </span>{" "}
+                at Beambox,{" "}
+                <span className="font-semibold text-primary-400">
+                  zero critical bugs across 5 consecutive releases
+                </span>{" "}
+                at Lumimeds, and a full BDD test suite built from scratch at
+                Noldor.
               </p>
               <p className="leading-relaxed text-text-muted">
-                The combination of frontend engineering and QA is rare — and
-                powerful. I don&apos;t just build it, I make sure it works.
-                From increasing automation coverage from 0% to 80% at
-                Beambox, to achieving zero critical bugs across 5 consecutive
-                releases at Lumimeds, I bring a quality-first mindset to
-                everything I ship.
+                Over 5+ years, I&apos;ve shipped insurance platforms, healthcare
+                systems, e-learning tools, and SaaS products with remote teams
+                across the USA, Europe, and Pakistan. My edge? I don&apos;t just
+                write tests — I think like the user who&apos;ll rage-quit, break
+                things like the hacker who&apos;ll try, and ship like someone
+                whose reputation is on every release.
               </p>
-              <div>
-                <motion.button
-                  onClick={handleDownloadResume}
+
+              {/* CTA */}
+              <div className="mt-1">
+                <motion.div
+                  className="inline-block"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.97 }}
-                  className="cursor-pointer inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary-500 to-primary-700 px-6 py-3 text-sm font-medium text-white transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/30 hover:brightness-110"
                 >
-                  <Download className="h-4 w-4" />
-                  Download Resume
-                </motion.button>
+                  <Link
+                    href="/projects"
+                    className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary-500 to-primary-700 px-6 py-3 text-sm font-medium text-white transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/30 hover:brightness-110"
+                  >
+                    See My Work
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </motion.div>
               </div>
             </div>
           </ScrollReveal>
 
-          {/* Profile Image + Stats (shows first on mobile) */}
+          {/* Profile Image + Stats */}
           <ScrollReveal direction="right" delay={0.2} className="order-1 lg:order-2">
             <div className="flex flex-col items-center gap-8">
               {/* Profile Image */}

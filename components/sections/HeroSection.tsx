@@ -40,21 +40,20 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0.1,
+      staggerChildren: 0.04,
+      delayChildren: 0.02,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 30, filter: "blur(8px)" },
+  hidden: { opacity: 0, y: 12 },
   visible: {
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
     transition: {
-      duration: 0.5,
-      ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+      duration: 0.2,
+      ease: "easeOut" as const,
     },
   },
 };
@@ -174,7 +173,7 @@ export default function HeroSection() {
                 aria-label={link.platform}
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.6 + index * 0.08, type: "spring", stiffness: 300, damping: 20 }}
+                transition={{ delay: 0.15 + index * 0.03, duration: 0.2 }}
                 whileHover={{ scale: 1.2, y: -3 }}
                 whileTap={{ scale: 0.9 }}
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-surface-200/50 text-text-secondary transition-colors duration-300 hover:border-primary-500/50 hover:bg-primary-500/10 hover:text-primary-400"
@@ -189,10 +188,10 @@ export default function HeroSection() {
 
       {/* Scroll Indicator — absolute to section */}
       <motion.div
-        className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2"
+        className="absolute bottom-16 left-1/2 z-10 -translate-x-1/2 sm:bottom-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 0.6 }}
+        transition={{ delay: 0.3, duration: 0.2 }}
       >
         <motion.button
           onClick={() => {
