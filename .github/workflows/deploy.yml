@@ -1,8 +1,9 @@
 name: Deploy to GitHub Pages
 
+# Disabled by default — using Vercel for deployment
+# To re-enable: change workflow_dispatch to push trigger below
 on:
-  push:
-    branches: [main]
+  workflow_dispatch: # Manual trigger only — run from GitHub Actions tab if needed
 
 permissions:
   contents: read
@@ -16,6 +17,9 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      DEPLOY_TARGET: github
+      NEXT_PUBLIC_DEPLOY_TARGET: github
     steps:
       - uses: actions/checkout@v4
 
