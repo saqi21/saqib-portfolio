@@ -50,7 +50,7 @@ export default function ExperienceSection() {
                       transition={{ type: "spring", stiffness: 300, damping: 15, delay: index * 0.1 }}
                     >
                       <motion.div
-                        className="flex h-10 w-10 items-center justify-center rounded-full border-4 border-white bg-gradient-to-r from-primary-500 to-accent-400 shadow-lg shadow-primary-500/25"
+                        className="flex h-10 w-10 items-center justify-center rounded-full border-4 border-surface-900 bg-gradient-to-r from-primary-500 to-accent-400 shadow-lg shadow-primary-500/25"
                         whileHover={{ scale: 1.2 }}
                         transition={{ type: "spring", stiffness: 300, damping: 15 }}
                       >
@@ -78,7 +78,7 @@ export default function ExperienceSection() {
                       viewport={{ once: true, amount: 0.5 }}
                       transition={{ type: "spring", stiffness: 300, damping: 15, delay: index * 0.1 }}
                     >
-                      <div className="flex h-8 w-8 items-center justify-center rounded-full border-4 border-white bg-gradient-to-r from-primary-500 to-accent-400 shadow-lg shadow-primary-500/25">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-full border-4 border-surface-900 bg-gradient-to-r from-primary-500 to-accent-400 shadow-lg shadow-primary-500/25">
                         <Briefcase className="h-3 w-3 text-white" />
                       </div>
                     </motion.div>

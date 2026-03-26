@@ -93,8 +93,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
+    <html lang="en" className={`dark ${inter.variable} ${poppins.variable}`} suppressHydrationWarning>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var d=document.documentElement,t=localStorage.getItem('theme');if(t==='light'){d.classList.remove('dark');d.classList.add('light')}d.style.colorScheme=t==='light'?'light':'dark'}catch(e){}})()`,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -118,7 +123,7 @@ export default function RootLayout({
                 },
                 sameAs: [
                   "https://github.com/saqi21",
-                  "https://www.linkedin.com/in/saqib-zafar-6966a7225/",
+                  "https://www.linkedin.com/in/saqibzafar-sqa/",
                   "https://web.facebook.com/saqib.zafar.21",
                   "https://www.instagram.com/saaqi_zafar/",
                 ],
@@ -165,8 +170,14 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased" suppressHydrationWarning>
         <Providers>
+          <a
+            href="#main"
+            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-primary-500 focus:px-4 focus:py-2 focus:text-white focus:outline-none"
+          >
+            Skip to content
+          </a>
           <Navbar />
-          <main>{children}</main>
+          <main id="main">{children}</main>
           <Footer />
         </Providers>
       </body>

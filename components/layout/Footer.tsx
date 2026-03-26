@@ -1,18 +1,13 @@
 import Link from "next/link";
-import { Github, Linkedin, Facebook, Instagram } from "lucide-react";
 import { navLinks } from "@/lib/constants";
 import { personalInfo } from "@/data/personal";
+import { socialIconMap } from "@/lib/icons";
 
-const iconMap: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
-  Github,
-  Linkedin,
-  Facebook,
-  Instagram,
-};
+const iconMap = socialIconMap;
 
 export default function Footer() {
   return (
-    <footer className="border-t border-black/5 bg-surface-900">
+    <footer className="border-t border-surface-200/30 bg-surface-900">
       <div className="mx-auto max-w-7xl px-6 py-12">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
           {/* Branding */}
@@ -61,7 +56,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.platform}
-                    className="flex h-10 w-10 items-center justify-center rounded-lg bg-black/5 text-text-secondary transition-all duration-200 hover:bg-primary-500/20 hover:text-primary-400"
+                    className="flex h-10 w-10 items-center justify-center rounded-lg bg-surface-200/20 text-text-secondary transition-all duration-200 hover:bg-primary-500/20 hover:text-primary-400"
                   >
                     <Icon size={18} />
                   </a>
@@ -72,7 +67,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 flex flex-col items-center gap-2 border-t border-black/5 pt-8 text-center text-xs text-text-muted sm:flex-row sm:justify-between">
+        <div className="mt-12 flex flex-col items-center gap-2 border-t border-surface-200/30 pt-8 text-center text-xs text-text-muted sm:flex-row sm:justify-between">
           <p>&copy; {new Date().getFullYear()} SaQiB Zafar. All rights reserved.</p>
           <p>Built with Next.js &amp; Three.js</p>
         </div>

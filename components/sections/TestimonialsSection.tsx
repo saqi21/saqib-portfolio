@@ -173,7 +173,7 @@ export default function TestimonialsSection() {
             {/* Prev button */}
             <button
               onClick={prev}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-surface-200 bg-white/60 text-text-muted backdrop-blur-sm transition-all duration-200 hover:border-primary-500/30 hover:text-primary-500"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-surface-200/50 bg-surface-800/60 text-text-muted backdrop-blur-sm transition-all duration-200 hover:border-primary-500/30 hover:text-primary-500"
               aria-label="Previous testimonial"
             >
               <ChevronLeft className="h-5 w-5" />
@@ -198,7 +198,7 @@ export default function TestimonialsSection() {
             {/* Next button */}
             <button
               onClick={next}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-surface-200 bg-white/60 text-text-muted backdrop-blur-sm transition-all duration-200 hover:border-primary-500/30 hover:text-primary-500"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-surface-200/50 bg-surface-800/60 text-text-muted backdrop-blur-sm transition-all duration-200 hover:border-primary-500/30 hover:text-primary-500"
               aria-label="Next testimonial"
             >
               <ChevronRight className="h-5 w-5" />

@@ -76,7 +76,7 @@ const categories = [
 type CategoryFilter = (typeof categories)[number]["key"];
 
 export default function SkillsSection() {
-  const [activeCategory, setActiveCategory] = useState<CategoryFilter>("testing");
+  const [activeCategory, setActiveCategory] = useState<CategoryFilter>("all");
 
   const filteredSkills =
     activeCategory === "all"

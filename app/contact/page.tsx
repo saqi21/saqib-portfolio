@@ -11,25 +11,16 @@ import {
   Phone,
   MapPin,
   Loader2,
-  Github,
-  Linkedin,
-  Facebook,
-  Instagram,
 } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
 
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import SectionHeader from "@/components/shared/SectionHeader";
 import { sendContactEmail } from "@/lib/emailjs";
 import { personalInfo } from "@/data/personal";
+import { socialIconMap } from "@/lib/icons";
 import type { ContactFormData } from "@/types";
 
-const iconMap: Record<string, LucideIcon> = {
-  Github,
-  Linkedin,
-  Facebook,
-  Instagram,
-};
+const iconMap = socialIconMap;
 
 interface StatusMessage {
   type: "success" | "error" | "warning";
@@ -111,7 +102,7 @@ export default function ContactPage() {
                     id="name"
                     type="text"
                     placeholder="Your name"
-                    className="w-full rounded-xl border border-black/10 bg-surface-800 px-4 py-3 text-text-primary transition placeholder:text-text-muted focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
+                    className="w-full rounded-xl border border-surface-200/50 bg-surface-800 px-4 py-3 text-text-primary transition placeholder:text-text-muted focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
                     {...register("name", {
                       required: "Name is required",
                       minLength: {
@@ -140,7 +131,7 @@ export default function ContactPage() {
                     id="email"
                     type="email"
                     placeholder="your@email.com"
-                    className="w-full rounded-xl border border-black/10 bg-surface-800 px-4 py-3 text-text-primary transition placeholder:text-text-muted focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
+                    className="w-full rounded-xl border border-surface-200/50 bg-surface-800 px-4 py-3 text-text-primary transition placeholder:text-text-muted focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
                     {...register("email", {
                       required: "Email is required",
                       pattern: {
@@ -169,7 +160,7 @@ export default function ContactPage() {
                     id="message"
                     rows={6}
                     placeholder="Tell me about your project..."
-                    className="w-full resize-none rounded-xl border border-black/10 bg-surface-800 px-4 py-3 text-text-primary transition placeholder:text-text-muted focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
+                    className="w-full resize-none rounded-xl border border-surface-200/50 bg-surface-800 px-4 py-3 text-text-primary transition placeholder:text-text-muted focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
                     {...register("message", {
                       required: "Message is required",
                       minLength: {

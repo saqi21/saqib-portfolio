@@ -66,7 +66,7 @@ export default function ResumePage() {
       <div className="mx-auto max-w-4xl px-4 sm:px-6 print:px-0">
         <div
           id="resume-content"
-          className="resume-pdf relative rounded-xl bg-white px-8 py-10 text-[13px] leading-snug shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3),0_0_0_1px_rgba(0,0,0,0.05)] ring-1 ring-gray-200/50 sm:px-12 print:rounded-none print:px-12 print:py-0 print:shadow-none print:ring-0"
+          className="resume-pdf relative rounded-xl bg-white px-8 py-10 text-[13px] leading-snug text-gray-800 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3),0_0_0_1px_rgba(0,0,0,0.05)] ring-1 ring-gray-200/50 sm:px-12 print:rounded-none print:px-12 print:py-0 print:shadow-none print:ring-0"
           style={{
             transform: "perspective(1200px) rotateY(0deg)",
           }}
@@ -85,7 +85,7 @@ export default function ResumePage() {
                 className="h-16 w-16 rounded-full object-cover ring-2 ring-gray-200"
               />
               <div>
-                <h1 className="text-2xl font-bold tracking-tight">
+                <h1 className="text-2xl font-bold tracking-tight text-gray-900">
                   Saqib Zafar
                 </h1>
                 <p className="text-sm font-medium text-gray-600">

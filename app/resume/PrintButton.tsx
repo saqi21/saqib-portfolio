@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { Download, Printer, Loader2 } from "lucide-react";
-import { generateResumePdf } from "@/lib/generateResumePdf";
 
 export default function PrintButton() {
   const [loading, setLoading] = useState(false);
@@ -10,6 +9,7 @@ export default function PrintButton() {
   const handleDownload = async () => {
     setLoading(true);
     try {
+      const { generateResumePdf } = await import("@/lib/generateResumePdf");
       await generateResumePdf();
     } finally {
       setLoading(false);

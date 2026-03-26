@@ -1,8 +1,5 @@
 import { Experience, Education, Certificate } from "@/types";
 
-const currentDate = new Date();
-const currentMonthYear = `${currentDate.toLocaleString("en-US", { month: "short" })} ${currentDate.getFullYear()}`;
-
 export const experiences: Experience[] = [
   {
     title: "Software Quality Assurance Engineer",

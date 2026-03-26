@@ -38,7 +38,7 @@ export default function FeaturedBlogBanner() {
           transition={{ type: "spring", stiffness: 400, damping: 30 }}
           className="fixed left-1/2 top-20 z-50 -translate-x-1/2 sm:top-[76px]"
         >
-          <div className="relative flex items-center gap-2 rounded-full border border-black/5 bg-white/95 py-1.5 pl-3 pr-1.5 shadow-lg shadow-black/8 backdrop-blur-md sm:gap-3 sm:py-2 sm:pl-4 sm:pr-2">
+          <div className="relative flex items-center gap-2 rounded-full border border-surface-200/50 bg-surface-950/95 py-1.5 pl-3 pr-1.5 shadow-lg shadow-black/10 backdrop-blur-md sm:gap-3 sm:py-2 sm:pl-4 sm:pr-2">
             {/* Pulse dot */}
             <span className="relative flex h-2 w-2 shrink-0">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary-500 opacity-60" />

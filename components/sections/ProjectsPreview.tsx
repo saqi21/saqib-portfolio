@@ -88,7 +88,7 @@ export default function ProjectsPreview() {
   const visibleWorks = featuredWorks.slice(page * perPage, page * perPage + perPage);
 
   return (
-    <section className="section-padding">
+    <section id="projects" className="section-padding">
       <div className="container mx-auto max-w-6xl px-4">
         <ScrollReveal>
           <div className="flex items-end justify-between">

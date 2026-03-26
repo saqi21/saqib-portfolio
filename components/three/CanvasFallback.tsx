@@ -13,7 +13,7 @@ export default function CanvasFallback() {
         background:
           'radial-gradient(ellipse at 30% 20%, rgba(102, 126, 234, 0.15) 0%, transparent 50%), ' +
           'radial-gradient(ellipse at 70% 80%, rgba(118, 75, 162, 0.15) 0%, transparent 50%), ' +
-          '#f6f7fb',
+          'var(--color-surface-950, #0a0a0f)',
       }}
     >
       {/* Floating circle 1 - top left */}

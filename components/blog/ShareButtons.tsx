@@ -43,7 +43,7 @@ export default function ShareButtons({ url, title }: ShareButtonsProps) {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Share on LinkedIn"
-        className="flex h-8 w-8 items-center justify-center rounded-full border border-black/10 text-text-muted transition-all duration-200 hover:border-primary-500/50 hover:bg-primary-500/10 hover:text-primary-400"
+        className="flex h-8 w-8 items-center justify-center rounded-full border border-surface-200/50 text-text-muted transition-all duration-200 hover:border-primary-500/50 hover:bg-primary-500/10 hover:text-primary-400"
       >
         <Linkedin className="h-3.5 w-3.5" />
       </a>
@@ -52,14 +52,14 @@ export default function ShareButtons({ url, title }: ShareButtonsProps) {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Share on Twitter"
-        className="flex h-8 w-8 items-center justify-center rounded-full border border-black/10 text-text-muted transition-all duration-200 hover:border-primary-500/50 hover:bg-primary-500/10 hover:text-primary-400"
+        className="flex h-8 w-8 items-center justify-center rounded-full border border-surface-200/50 text-text-muted transition-all duration-200 hover:border-primary-500/50 hover:bg-primary-500/10 hover:text-primary-400"
       >
         <Twitter className="h-3.5 w-3.5" />
       </a>
       <button
         onClick={copyLink}
         aria-label="Copy link"
-        className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border border-black/10 text-text-muted transition-all duration-200 hover:border-primary-500/50 hover:bg-primary-500/10 hover:text-primary-400"
+        className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border border-surface-200/50 text-text-muted transition-all duration-200 hover:border-primary-500/50 hover:bg-primary-500/10 hover:text-primary-400"
       >
         {copied ? (
           <Check className="h-3.5 w-3.5 text-green-500" />

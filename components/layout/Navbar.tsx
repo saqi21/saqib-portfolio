@@ -4,15 +4,16 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Download } from "lucide-react";
+import { Menu, X, Download, Sun, Moon } from "lucide-react";
 import { navLinks } from "@/lib/constants";
-import { generateResumePdf } from "@/lib/generateResumePdf";
+import { useTheme } from "@/hooks/useTheme";
 import Logo from "@/components/shared/Logo";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
+  const { theme, mounted, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,6 +41,11 @@ export default function Navbar() {
     };
   }, [mobileOpen]);
 
+  const handleDownloadResume = async () => {
+    const { generateResumePdf } = await import("@/lib/generateResumePdf");
+    generateResumePdf();
+  };
+
   return (
     <>
       <motion.header
@@ -52,8 +58,8 @@ export default function Navbar() {
         <nav
           className={`navbar-3d relative flex items-center justify-between rounded-xl border px-5 transition-all duration-500 sm:px-7 ${
             scrolled
-              ? "border-white/60 bg-white/90 py-2.5 backdrop-blur-2xl"
-              : "border-white/40 bg-white/70 py-3 backdrop-blur-xl"
+              ? "border-surface-200/50 bg-surface-950/90 py-2.5 backdrop-blur-2xl"
+              : "border-surface-200/30 bg-surface-950/70 py-3 backdrop-blur-xl"
           }`}
         >
           {/* Logo */}
@@ -72,6 +78,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
+                aria-current={pathname === link.href ? "page" : undefined}
                 className={`relative text-sm font-medium transition-colors duration-200 hover:text-primary-400 ${
                   pathname === link.href
                     ? "text-primary-400"
@@ -93,8 +100,19 @@ export default function Navbar() {
               </Link>
             ))}
 
+            {/* Theme toggle */}
             <motion.button
-              onClick={() => generateResumePdf()}
+              onClick={toggleTheme}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-surface-200/50 text-text-secondary transition-colors hover:border-primary-500/30 hover:text-primary-400"
+              aria-label="Toggle theme"
+            >
+              {!mounted ? <Sun size={16} className="opacity-0" /> : theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+            </motion.button>
+
+            <motion.button
+              onClick={handleDownloadResume}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
               className="cursor-pointer inline-flex items-center gap-2 rounded-full border border-primary-500/30 bg-primary-500/10 px-5 py-2 text-sm font-medium text-primary-400 transition-all duration-200 hover:border-primary-500/60 hover:bg-primary-500/20"
@@ -104,42 +122,53 @@ export default function Navbar() {
             </motion.button>
           </div>
 
-          {/* Mobile Hamburger Button */}
-          <motion.button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="relative z-[60] flex items-center justify-center rounded-lg p-2 text-text-secondary transition-colors hover:text-text-primary md:hidden"
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
-            whileTap={{ scale: 0.9 }}
-          >
-            <AnimatePresence mode="wait">
-              {mobileOpen ? (
-                <motion.div
-                  key="close"
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: 90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <X size={24} />
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="menu"
-                  initial={{ rotate: 90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: -90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <Menu size={24} />
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.button>
+          {/* Mobile: theme toggle + hamburger */}
+          <div className="flex items-center gap-2 md:hidden">
+            <motion.button
+              onClick={toggleTheme}
+              whileTap={{ scale: 0.9 }}
+              className="flex h-9 w-9 items-center justify-center rounded-lg text-text-secondary transition-colors hover:text-text-primary"
+              aria-label="Toggle theme"
+            >
+              {!mounted ? <Sun size={18} className="opacity-0" /> : theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+            </motion.button>
+
+            <motion.button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="relative z-[60] flex items-center justify-center rounded-lg p-2 text-text-secondary transition-colors hover:text-text-primary"
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              whileTap={{ scale: 0.9 }}
+            >
+              <AnimatePresence mode="wait">
+                {mobileOpen ? (
+                  <motion.div
+                    key="close"
+                    initial={{ rotate: -90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: 90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <X size={24} />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="menu"
+                    initial={{ rotate: 90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: -90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Menu size={24} />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.button>
+          </div>
         </nav>
         </div>
       </motion.header>
 
-      {/* Mobile Menu Overlay — outside header so it covers full screen */}
+      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -149,15 +178,6 @@ export default function Navbar() {
             transition={{ duration: 0.25 }}
             className="fixed inset-0 z-[55] flex flex-col items-center justify-center bg-surface-950/98 backdrop-blur-xl md:hidden"
           >
-            {/* Close button */}
-            <button
-              onClick={() => setMobileOpen(false)}
-              className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-lg text-text-secondary transition-colors hover:text-text-primary"
-              aria-label="Close menu"
-            >
-              <X size={24} />
-            </button>
-
             <div className="flex flex-col items-center gap-8">
               {navLinks.map((link, index) => (
                 <motion.div
@@ -172,6 +192,7 @@ export default function Navbar() {
                   <Link
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
+                    aria-current={pathname === link.href ? "page" : undefined}
                     className={`text-2xl font-medium font-heading transition-colors duration-200 hover:text-primary-400 ${
                       pathname === link.href
                         ? "gradient-text"
@@ -191,7 +212,7 @@ export default function Navbar() {
                 <button
                   onClick={() => {
                     setMobileOpen(false);
-                    generateResumePdf();
+                    handleDownloadResume();
                   }}
                   className="cursor-pointer inline-flex items-center gap-2 rounded-full border border-primary-500/30 bg-primary-500/10 px-6 py-3 text-lg font-medium text-primary-400 transition-all duration-200 hover:border-primary-500/60 hover:bg-primary-500/20"
                 >
