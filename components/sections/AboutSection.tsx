@@ -50,8 +50,7 @@ export default function AboutSection() {
                 <span className="font-semibold text-primary-400">
                   zero critical bugs across 5 consecutive releases
                 </span>{" "}
-                at Lumimeds, and a full BDD test suite built from scratch at
-                Noldor.
+                at Lumimeds.
               </p>
               <p className="leading-relaxed text-text-muted">
                 Over 5+ years, I&apos;ve shipped insurance platforms, healthcare

@@ -7,9 +7,9 @@ export const experiences: Experience[] = [
     period: "Nov 2022 - Present",
     location: "Gujranwala, Punjab, Pakistan",
     description:
-      "Lead SQA for Beambox, EasyLlama, Lumimeds, Noldor & DoubleList projects. Built automation frameworks with Cypress and Cucumber BDD, mentored junior engineers, and owned the complete QA lifecycle from test strategy to CI/CD integration.",
+      "Lead SQA for Beambox, EasyLlama, & Lumimeds projects. Built automation frameworks with Cypress and Cucumber BDD, mentored junior engineers, and owned the complete QA lifecycle from test strategy to CI/CD integration.",
     highlights: [
-      "Lead SQA across Beambox, EasyLlama, Lumimeds, Noldor & DoubleList — owning test strategy, execution, and automation",
+      "Lead SQA across Beambox, EasyLlama, Lumimeds, & DoubleList — owning test strategy, execution, and automation",
       "Increased automation coverage from 0% to 80% of core flows at Beambox using Cypress",
       "Reduced manual regression testing time from 3 hours to 40 minutes",
       "Achieved zero post-deployment critical bugs for 5 consecutive releases at Lumimeds",
