@@ -7,16 +7,29 @@ export const experiences: Experience[] = [
     period: "Nov 2022 - Present",
     location: "Gujranwala, Punjab, Pakistan",
     description:
-      "Lead SQA for Beambox, EasyLlama, & Lumimeds projects. Built automation frameworks with Cypress and Cucumber BDD, mentored junior engineers, and owned the complete QA lifecycle from test strategy to CI/CD integration.",
+      "Lead SQA for Beambox, EasyLlama, & Lumimeds projects. Built automation frameworks with Cypress, mentored junior engineers, and owned the complete QA lifecycle from test strategy to CI/CD integration.",
     highlights: [
-      "Lead SQA across Beambox, EasyLlama, Lumimeds, & DoubleList — owning test strategy, execution, and automation",
+      "Lead SQA across Beambox, EasyLlama, Lumimeds & DoubleList — owning test strategy, execution, and automation",
       "Increased automation coverage from 0% to 80% of core flows at Beambox using Cypress",
       "Reduced manual regression testing time from 3 hours to 40 minutes",
       "Achieved zero post-deployment critical bugs for 5 consecutive releases at Lumimeds",
-      "Built Cypress + Cucumber BDD automation framework from scratch for Noldor using Nx monorepo",
-      "Automated 50+ E2E scenarios across multiple portals with Page Object Model architecture",
       "Mentored junior QA engineers in manual and automated testing best practices",
       "Integrated automated test suites with CI/CD pipelines for continuous quality assurance",
+    ],
+  },
+  {
+    title: "Automation SQA Engineer",
+    company: "Remote",
+    type: "Contract",
+    period: "Dec 2025 - Present",
+    location: "Remote - USA",
+    description:
+      "Building and maintaining end-to-end test automation using Cypress with Cucumber (BDD) for an insurance technology platform. Writing feature files and step definitions to ensure comprehensive coverage across multiple portals.",
+    highlights: [
+      "Built Cypress + Cucumber BDD automation framework from scratch using Nx monorepo",
+      "Automated 50+ E2E scenarios across multiple interconnected portals",
+      "Designed modular Page Object Model architecture enabling rapid test expansion",
+      "Integrated automated test suite with CI/CD pipelines for continuous quality assurance",
     ],
   },
   {

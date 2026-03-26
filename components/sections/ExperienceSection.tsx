@@ -185,9 +185,16 @@ function TimelineCard({ experience }: TimelineCardProps) {
       whileHover={{ y: -3, boxShadow: "0 8px 30px rgba(102, 126, 234, 0.08)" }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
     >
-      <span className="inline-block rounded-full bg-primary-500/10 px-3 py-1 text-sm font-medium text-primary-400">
-        {experience.period}
-      </span>
+      <div className="flex flex-wrap items-center gap-2">
+        <span className="inline-block rounded-full bg-primary-500/10 px-3 py-1 text-sm font-medium text-primary-400">
+          {experience.period}
+        </span>
+        {experience.type && (
+          <span className="inline-block rounded-full border border-accent-400/30 bg-accent-400/10 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-accent-400">
+            {experience.type}
+          </span>
+        )}
+      </div>
 
       <h3 className="mt-3 font-heading text-xl font-semibold text-text-primary">
         {experience.title}

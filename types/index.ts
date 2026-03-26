@@ -20,6 +20,7 @@ export interface Experience {
   location: string;
   description: string;
   highlights?: string[];
+  type?: string;
 }
 
 export interface Certificate {
