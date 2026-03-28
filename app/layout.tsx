@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Inter, Poppins } from "next/font/google";
 import { siteConfig, basePath } from "@/lib/constants";
 import Providers from "./providers";
@@ -102,17 +103,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`dark ${inter.variable} ${poppins.variable}`} suppressHydrationWarning>
       <head>
-        {/* Google Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-GS8N2TQCM8" />
+        {/* Theme init — runs before paint to prevent flash */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-GS8N2TQCM8');`,
-          }}
-        />
-        {/* Theme init */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var d=document.documentElement,t=localStorage.getItem('theme');if(t==='light'){d.classList.remove('dark');d.classList.add('light')}d.style.colorScheme=t==='light'?'light':'dark'}catch(e){}})()`,
+            __html: `(function(){try{var d=document.documentElement,t=localStorage.getItem('theme');if(!t){t=window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'}if(t==='light'){d.classList.remove('dark');d.classList.add('light')}d.style.colorScheme=t==='light'?'light':'dark'}catch(e){}})()`,
           }}
         />
         <script
@@ -184,6 +178,11 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans antialiased" suppressHydrationWarning>
+        {/* Google Analytics — loaded after interactive */}
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-GS8N2TQCM8" strategy="afterInteractive" />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-GS8N2TQCM8');`}
+        </Script>
         <Providers>
           <a
             href="#main"

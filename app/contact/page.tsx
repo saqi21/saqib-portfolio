@@ -48,13 +48,26 @@ export default function ContactPage() {
   }, [status, clearStatus]);
 
   const onSubmit = async (data: ContactFormData) => {
+    // Honeypot check — bots fill hidden fields
+    const honeypot = (document.querySelector('input[name="website"]') as HTMLInputElement)?.value;
+    if (honeypot) return;
+
+    // Rate limiting — 1 submission per 60 seconds
+    const lastSent = localStorage.getItem("lastContactSent");
+    if (lastSent && Date.now() - Number(lastSent) < 60000) {
+      setStatus({ type: "warning", text: "Please wait a moment before sending again." });
+      return;
+    }
+
     try {
       const result = await sendContactEmail(data);
 
       if (result.success && result.warning) {
+        localStorage.setItem("lastContactSent", String(Date.now()));
         setStatus({ type: "warning", text: result.message });
         reset();
       } else if (result.success) {
+        localStorage.setItem("lastContactSent", String(Date.now()));
         setStatus({ type: "success", text: result.message });
         reset();
       } else {
@@ -70,7 +83,7 @@ export default function ContactPage() {
 
   const statusColor: Record<string, string> = {
     success: "text-green-600",
-    error: "text-accent-400",
+    error: "text-red-400",
     warning: "text-yellow-400",
   };
 
@@ -79,6 +92,7 @@ export default function ContactPage() {
       <div className="mx-auto max-w-6xl px-4">
         <ScrollReveal>
           <SectionHeader
+            as="h1"
             title="Get In Touch"
             subtitle="Let's discuss your project"
           />
@@ -89,6 +103,16 @@ export default function ContactPage() {
           <ScrollReveal direction="left" delay={0.1} className="lg:col-span-3">
             <div className="glass rounded-2xl p-8">
               <form onSubmit={handleSubmit(onSubmit)} noValidate>
+                {/* Honeypot — hidden from real users, catches bots */}
+                <input
+                  type="text"
+                  name="website"
+                  className="hidden"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                />
+
                 {/* Name Field */}
                 <div className="mb-6">
                   <label
@@ -102,6 +126,8 @@ export default function ContactPage() {
                     id="name"
                     type="text"
                     placeholder="Your name"
+                    aria-invalid={errors.name ? "true" : undefined}
+                    aria-describedby={errors.name ? "name-error" : undefined}
                     className="w-full rounded-xl border border-surface-200/50 bg-surface-800 px-4 py-3 text-text-primary transition placeholder:text-text-muted focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
                     {...register("name", {
                       required: "Name is required",
@@ -112,7 +138,7 @@ export default function ContactPage() {
                     })}
                   />
                   {errors.name && (
-                    <p className="mt-1 text-sm text-accent-400">
+                    <p id="name-error" role="alert" className="mt-1 text-sm text-red-400">
                       {errors.name.message}
                     </p>
                   )}
@@ -131,6 +157,8 @@ export default function ContactPage() {
                     id="email"
                     type="email"
                     placeholder="your@email.com"
+                    aria-invalid={errors.email ? "true" : undefined}
+                    aria-describedby={errors.email ? "email-error" : undefined}
                     className="w-full rounded-xl border border-surface-200/50 bg-surface-800 px-4 py-3 text-text-primary transition placeholder:text-text-muted focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
                     {...register("email", {
                       required: "Email is required",
@@ -141,7 +169,7 @@ export default function ContactPage() {
                     })}
                   />
                   {errors.email && (
-                    <p className="mt-1 text-sm text-accent-400">
+                    <p id="email-error" role="alert" className="mt-1 text-sm text-red-400">
                       {errors.email.message}
                     </p>
                   )}
@@ -160,6 +188,8 @@ export default function ContactPage() {
                     id="message"
                     rows={6}
                     placeholder="Tell me about your project..."
+                    aria-invalid={errors.message ? "true" : undefined}
+                    aria-describedby={errors.message ? "message-error" : undefined}
                     className="w-full resize-none rounded-xl border border-surface-200/50 bg-surface-800 px-4 py-3 text-text-primary transition placeholder:text-text-muted focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
                     {...register("message", {
                       required: "Message is required",
@@ -170,7 +200,7 @@ export default function ContactPage() {
                     })}
                   />
                   {errors.message && (
-                    <p className="mt-1 text-sm text-accent-400">
+                    <p id="message-error" role="alert" className="mt-1 text-sm text-red-400">
                       {errors.message.message}
                     </p>
                   )}

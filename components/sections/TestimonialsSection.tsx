@@ -84,7 +84,7 @@ export default function TestimonialsSection() {
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          <div className="relative overflow-hidden">
+          <div className="relative overflow-hidden" aria-live="polite" aria-atomic="true">
             <AnimatePresence initial={false} custom={direction} mode="wait">
               <motion.div
                 key={current}

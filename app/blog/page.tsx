@@ -29,6 +29,7 @@ export default function BlogPage() {
         <div className="container mx-auto max-w-7xl px-4">
           <ScrollReveal>
             <SectionHeader
+              as="h1"
               title="Blog"
               subtitle="Thoughts on software engineering, quality assurance, and professional growth"
             />

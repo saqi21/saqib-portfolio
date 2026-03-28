@@ -29,46 +29,27 @@ export default function CustomCursor() {
     const handleMouseEnter = () => setVisible(true);
     const handleMouseLeave = () => setVisible(false);
 
-    const handleHoverStart = () => setHovering(true);
-    const handleHoverEnd = () => setHovering(false);
+    // Event delegation — no MutationObserver needed, no listener accumulation
+    const hoverSelector = "a, button, [role='button'], input, textarea, select, [data-cursor-hover]";
+    const handleMouseOver = (e: Event) => {
+      if ((e.target as HTMLElement).closest(hoverSelector)) setHovering(true);
+    };
+    const handleMouseOut = (e: Event) => {
+      if ((e.target as HTMLElement).closest(hoverSelector)) setHovering(false);
+    };
 
     window.addEventListener("mousemove", handleMouseMove, { passive: true });
     document.addEventListener("mouseenter", handleMouseEnter);
     document.addEventListener("mouseleave", handleMouseLeave);
-
-    // Detect hoverable elements
-    const addHoverListeners = () => {
-      const interactives = document.querySelectorAll(
-        "a, button, [role='button'], input, textarea, select, [data-cursor-hover]"
-      );
-      interactives.forEach((el) => {
-        el.addEventListener("mouseenter", handleHoverStart);
-        el.addEventListener("mouseleave", handleHoverEnd);
-      });
-      return interactives;
-    };
-
-    const elements = addHoverListeners();
-
-    // Re-scan on DOM changes (route changes, dynamic content)
-    const observer = new MutationObserver(() => {
-      elements.forEach((el) => {
-        el.removeEventListener("mouseenter", handleHoverStart);
-        el.removeEventListener("mouseleave", handleHoverEnd);
-      });
-      addHoverListeners();
-    });
-    observer.observe(document.body, { childList: true, subtree: true });
+    document.addEventListener("mouseover", handleMouseOver, { passive: true });
+    document.addEventListener("mouseout", handleMouseOut, { passive: true });
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseenter", handleMouseEnter);
       document.removeEventListener("mouseleave", handleMouseLeave);
-      elements.forEach((el) => {
-        el.removeEventListener("mouseenter", handleHoverStart);
-        el.removeEventListener("mouseleave", handleHoverEnd);
-      });
-      observer.disconnect();
+      document.removeEventListener("mouseover", handleMouseOver);
+      document.removeEventListener("mouseout", handleMouseOut);
     };
   }, [isMobile, visible, x, y]);
 

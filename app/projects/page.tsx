@@ -31,6 +31,7 @@ export default function ProjectsPage() {
       <div className="mx-auto max-w-6xl px-4">
         <ScrollReveal>
           <SectionHeader
+            as="h1"
             title="My Projects"
             subtitle="Work I'm proud of"
           />
@@ -128,17 +129,16 @@ export default function ProjectsPage() {
                       {/* External URL */}
                       {work.url && (
                         <div className="mt-4">
-                          <span
-                            onClick={(e) => {
-                              e.preventDefault();
-                              e.stopPropagation();
-                              window.open(work.url, "_blank", "noopener,noreferrer");
-                            }}
+                          <a
+                            href={work.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
                             className="inline-flex items-center gap-1 text-xs text-text-muted transition-colors duration-200 hover:text-primary-400"
                           >
                             <ExternalLink className="h-3 w-3" />
                             {work.url.replace(/^https?:\/\//, "").replace(/\/$/, "")}
-                          </span>
+                          </a>
                         </div>
                       )}
                     </div>

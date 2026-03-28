@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import sanitizeHtml from "sanitize-html";
 import {
   ArrowLeft,
   ArrowRight,
@@ -16,6 +17,16 @@ import ShareButtons from "@/components/blog/ShareButtons";
 import ConnectCTA from "@/components/blog/ConnectCTA";
 import { articles } from "@/data/articles";
 import { siteConfig, basePath } from "@/lib/constants";
+
+function sanitize(html: string) {
+  return sanitizeHtml(html, {
+    allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img", "mark"]),
+    allowedAttributes: {
+      ...sanitizeHtml.defaults.allowedAttributes,
+      img: ["src", "alt", "width", "height", "loading"],
+    },
+  });
+}
 
 export function generateStaticParams() {
   return articles
@@ -84,27 +95,38 @@ export default async function ArticlePage({
 
   const articleUrl = `${siteConfig.url}/blog/${slug}`;
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: article.title,
-    description: article.description,
-    image: article.image,
-    datePublished: article.date,
-    dateModified: article.date,
-    author: {
-      "@type": "Person",
-      name: "SaQiB Zafar",
-      url: siteConfig.url,
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: article.title,
+      description: article.description,
+      image: article.image,
+      datePublished: article.date,
+      dateModified: article.date,
+      author: {
+        "@type": "Person",
+        name: "SaQiB Zafar",
+        url: siteConfig.url,
+      },
+      publisher: {
+        "@type": "Person",
+        name: "SaQiB Zafar",
+        url: siteConfig.url,
+      },
+      url: articleUrl,
+      keywords: article.tags.join(", "),
     },
-    publisher: {
-      "@type": "Person",
-      name: "SaQiB Zafar",
-      url: siteConfig.url,
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
+        { "@type": "ListItem", position: 2, name: "Blog", item: `${siteConfig.url}/blog` },
+        { "@type": "ListItem", position: 3, name: article.title, item: articleUrl },
+      ],
     },
-    url: articleUrl,
-    keywords: article.tags.join(", "),
-  };
+  ];
 
   return (
     <article className="min-h-screen">
@@ -192,7 +214,7 @@ export default async function ArticlePage({
           <ScrollReveal>
             <div
               className="prose-custom text-lg leading-relaxed text-text-secondary"
-              dangerouslySetInnerHTML={{ __html: content.intro }}
+              dangerouslySetInnerHTML={{ __html: sanitize(content.intro) }}
             />
           </ScrollReveal>
 
@@ -207,7 +229,7 @@ export default async function ArticlePage({
                 {section.content && (
                   <div
                     className="prose-custom mt-4 leading-relaxed text-text-secondary"
-                    dangerouslySetInnerHTML={{ __html: section.content }}
+                    dangerouslySetInnerHTML={{ __html: sanitize(section.content) }}
                   />
                 )}
 
@@ -226,7 +248,7 @@ export default async function ArticlePage({
                         </h3>
                         <div
                           className="prose-custom mt-2 leading-relaxed text-text-secondary"
-                          dangerouslySetInnerHTML={{ __html: item.description }}
+                          dangerouslySetInnerHTML={{ __html: sanitize(item.description) }}
                         />
                       </div>
                     ))}
@@ -244,7 +266,7 @@ export default async function ArticlePage({
               </h2>
               <div
                 className="prose-custom mt-4 leading-relaxed text-text-secondary"
-                dangerouslySetInnerHTML={{ __html: content.conclusion }}
+                dangerouslySetInnerHTML={{ __html: sanitize(content.conclusion) }}
               />
             </div>
           </ScrollReveal>
