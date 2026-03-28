@@ -21,6 +21,10 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
+  icons: {
+    icon: `${basePath}/images/favicon-logo.png`,
+    apple: `${basePath}/images/favicon-logo.png`,
+  },
   title: {
     default: siteConfig.title,
     template: `%s | ${siteConfig.name}`,
