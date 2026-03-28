@@ -99,6 +99,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={`dark ${inter.variable} ${poppins.variable}`} suppressHydrationWarning>
       <head>
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-GS8N2TQCM8" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-GS8N2TQCM8');`,
+          }}
+        />
+        {/* Theme init */}
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var d=document.documentElement,t=localStorage.getItem('theme');if(t==='light'){d.classList.remove('dark');d.classList.add('light')}d.style.colorScheme=t==='light'?'light':'dark'}catch(e){}})()`,
