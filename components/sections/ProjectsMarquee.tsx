@@ -37,7 +37,7 @@ export default function ProjectsMarquee() {
             >
               <Image
                 src={work.logo}
-                alt={work.name}
+                alt={`${work.name} project logo`}
                 width={80}
                 height={80}
                 className="h-[60px] w-auto object-contain"

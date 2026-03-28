@@ -79,7 +79,7 @@ export default function ProjectsPage() {
                     <div className="flex h-48 items-center justify-center bg-[#e2e8f0] p-8">
                       <Image
                         src={work.logo}
-                        alt={work.name}
+                        alt={`${work.name} — ${work.category === "sqa" ? "QA Automation" : "Frontend & QA"} project`}
                         width={100}
                         height={100}
                         className="max-h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-110"

@@ -21,6 +21,9 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
+  alternates: {
+    canonical: siteConfig.url,
+  },
   icons: {
     icon: `${basePath}/images/favicon-logo.png`,
     apple: `${basePath}/images/favicon-logo.png`,

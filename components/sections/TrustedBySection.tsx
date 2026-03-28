@@ -37,7 +37,7 @@ export default function TrustedBySection() {
             >
               <Image
                 src={work.logo}
-                alt={work.name}
+                alt={`${work.name} — company I've worked with`}
                 width={100}
                 height={40}
                 className={`h-8 w-auto object-contain grayscale transition-all duration-300 hover:grayscale-0 sm:h-10 ${

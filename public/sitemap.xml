@@ -2,62 +2,122 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://saqi21.github.io/saqib-portfolio/</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://saqi21.github.io/saqib-portfolio/projects</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://saqi21.github.io/saqib-portfolio/blog</loc>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://saqi21.github.io/saqib-portfolio/resume</loc>
-    <lastmod>2026-03-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://saqi21.github.io/saqib-portfolio/contact</loc>
-    <lastmod>2026-03-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://saqi21.github.io/saqib-portfolio/projects/noldor</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://saqi21.github.io/saqib-portfolio/contact</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://saqi21.github.io/saqib-portfolio/projects/beambox</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://saqi21.github.io/saqib-portfolio/projects/easyllama</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://saqi21.github.io/saqib-portfolio/projects/lumimeds</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://saqi21.github.io/saqib-portfolio/projects/noldor</loc>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://saqi21.github.io/saqib-portfolio/projects/worship-support-network</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://saqi21.github.io/saqib-portfolio/projects/walexport</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://saqi21.github.io/saqib-portfolio/blog/future-of-qa-5-trends-test-automation-engineer-must-embrace-2026</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://saqi21.github.io/saqib-portfolio/blog/power-of-perseverance-never-give-up-on-your-dreams</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://saqi21.github.io/saqib-portfolio/blog/achieving-work-life-balance-prioritizing-family</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://saqi21.github.io/saqib-portfolio/blog/embracing-change-key-to-personal-professional-growth</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://saqi21.github.io/saqib-portfolio/blog/bridging-the-gap-manual-vs-automation-testing</loc>
+    <lastmod>2026-02-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://saqi21.github.io/saqib-portfolio/blog/revolutionizing-qa-emerging-tools-best-practices</loc>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://saqi21.github.io/saqib-portfolio/blog/from-code-to-perfection-how-qa-shapes-future</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://saqi21.github.io/saqib-portfolio/blog/future-of-front-end-development-emerging-trends</loc>
+    <lastmod>2026-01-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://saqi21.github.io/saqib-portfolio/blog/unleashing-your-potential-skill-enhancement-stack-diversification</loc>
+    <lastmod>2026-01-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>

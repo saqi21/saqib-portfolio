@@ -20,9 +20,9 @@ import { basePath } from "@/lib/constants";
 import PrintButton from "./PrintButton";
 
 export const metadata: Metadata = {
-  title: "Resume | SaQiB Zafar — SQA Engineer & Front End Developer",
+  title: "Resume | SaQiB Zafar — SQA Engineer & Frontend Developer",
   description:
-    "Download SaQiB Zafar's resume — SQA Engineer & Front End Developer with 3+ years of experience in Cypress automation, Selenium, React, Next.js, and TypeScript. View work experience, skills, certifications, and projects.",
+    "Download SaQiB Zafar's resume — SQA Engineer & Frontend Developer with 5+ years of experience in Cypress automation, Selenium, React, Next.js, and TypeScript.",
   keywords: [
     "SaQiB Zafar Resume",
     "SQA Engineer Resume",
@@ -31,6 +31,13 @@ export const metadata: Metadata = {
     "QA Engineer CV",
     "Download Resume",
   ],
+  openGraph: {
+    title: "Resume | SaQiB Zafar",
+    description:
+      "SQA Engineer & Frontend Developer with 5+ years of experience. View work experience, skills, certifications, and projects.",
+    url: "https://saqi21.github.io/saqib-portfolio/resume",
+    type: "website",
+  },
 };
 
 const skillCategories = [

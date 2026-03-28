@@ -36,6 +36,9 @@ export async function generateMetadata({
     title: article.title,
     description: article.description,
     keywords: article.tags.join(", "),
+    alternates: {
+      canonical: `${siteConfig.url}/blog/${slug}`,
+    },
     openGraph: {
       title: article.title,
       description: article.description,
@@ -81,8 +84,34 @@ export default async function ArticlePage({
 
   const articleUrl = `${siteConfig.url}/blog/${slug}`;
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: article.title,
+    description: article.description,
+    image: article.image,
+    datePublished: article.date,
+    dateModified: article.date,
+    author: {
+      "@type": "Person",
+      name: "SaQiB Zafar",
+      url: siteConfig.url,
+    },
+    publisher: {
+      "@type": "Person",
+      name: "SaQiB Zafar",
+      url: siteConfig.url,
+    },
+    url: articleUrl,
+    keywords: article.tags.join(", "),
+  };
+
   return (
     <article className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <ReadingProgress />
 
       {/* Back Button */}

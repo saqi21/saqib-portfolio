@@ -42,11 +42,15 @@ export async function generateMetadata({
   return {
     title,
     description,
+    alternates: {
+      canonical: `${siteConfig.url}/projects/${slug}`,
+    },
     openGraph: {
       title,
       description,
       url: `${siteConfig.url}/projects/${slug}`,
       type: "article",
+      images: [{ url: work.logo, width: 400, height: 400, alt: `${work.name} project` }],
     },
   };
 }
@@ -157,7 +161,7 @@ function CaseStudyLayout({ work }: { work: (typeof works)[number] }) {
               <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-surface-800 p-4">
                 <Image
                   src={work.logo}
-                  alt={work.name}
+                  alt={`${work.name} project logo`}
                   width={64}
                   height={64}
                   className="h-full w-full object-contain"
@@ -457,7 +461,7 @@ function SimpleLayout({ work }: { work: (typeof works)[number] }) {
               <div className="flex h-24 w-24 items-center justify-center rounded-2xl bg-surface-800 p-4">
                 <Image
                   src={work.logo}
-                  alt={work.name}
+                  alt={`${work.name} project logo`}
                   width={80}
                   height={80}
                   className="h-full w-full object-contain"

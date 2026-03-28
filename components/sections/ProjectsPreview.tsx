@@ -24,7 +24,7 @@ function ProjectCard({ work }: { work: (typeof works)[number] }) {
         <div className="flex aspect-[16/9] items-center justify-center bg-[#e2e8f0] p-6 md:aspect-[4/3]">
           <Image
             src={work.logo}
-            alt={work.name}
+            alt={`${work.name} — ${work.category === "sqa" ? "QA Automation" : "Frontend & QA"} project`}
             width={160}
             height={160}
             className="h-auto max-h-[120px] w-auto max-w-[160px] object-contain transition-transform duration-500 group-hover:scale-110"
