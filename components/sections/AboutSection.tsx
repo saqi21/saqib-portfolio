@@ -7,6 +7,7 @@ import { ArrowRight } from "lucide-react";
 
 import SectionHeader from "@/components/shared/SectionHeader";
 import ScrollReveal from "@/components/shared/ScrollReveal";
+import AnimatedCounter from "@/components/shared/AnimatedCounter";
 import { basePath } from "@/lib/constants";
 
 const stats = [
@@ -126,9 +127,10 @@ export default function AboutSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.5 }}
                   >
-                    <span className="gradient-text font-heading text-3xl font-bold md:text-4xl">
-                      {stat.value}
-                    </span>
+                    <AnimatedCounter
+                      value={stat.value}
+                      className="gradient-text font-heading text-3xl font-bold md:text-4xl"
+                    />
                     <span className="mt-1 text-xs text-text-secondary">
                       {stat.label}
                     </span>

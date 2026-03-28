@@ -181,7 +181,9 @@ export default function RootLayout({
             Skip to content
           </a>
           <Navbar />
-          <main id="main">{children}</main>
+          <main id="main">
+            {children}
+          </main>
           <Footer />
         </Providers>
       </body>
