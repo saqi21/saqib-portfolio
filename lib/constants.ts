@@ -1,13 +1,9 @@
-const isGitHubPages = process.env.NEXT_PUBLIC_DEPLOY_TARGET === "github";
-
 export const siteConfig = {
   name: "SaQiB Zafar",
   title: "SaQiB Zafar | Front End Developer & SQA Engineer | React, Cypress, Selenium",
   description:
     "SaQiB Zafar — Front End Developer & SQA Engineer with 5+ years of experience in React, Next.js, TypeScript, Cypress automation, Selenium, and Cucumber BDD. Specializing in test automation, manual testing, and building responsive web applications.",
-  url: isGitHubPages
-    ? "https://saqi21.github.io/saqib-portfolio"
-    : process.env.NEXT_PUBLIC_SITE_URL || "https://saqibzafar.vercel.app",
+  url: "https://saqi21.github.io/saqib-portfolio",
 };
 
 export const navLinks = [
@@ -18,6 +14,6 @@ export const navLinks = [
   { label: "Contact", href: "/contact" },
 ] as const;
 
-export const basePath = isGitHubPages ? "/saqib-portfolio" : "";
+export const basePath = process.env.NODE_ENV === "production" ? "/saqib-portfolio" : "";
 
 export const resumeUrl = `${basePath}/resume/Saqib_Zafar_Resume.pdf`;
