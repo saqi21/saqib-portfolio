@@ -27,7 +27,7 @@ export default function ProjectsPage() {
       : works.filter((work) => work.category === activeCategory);
 
   return (
-    <section className="section-padding pt-36">
+    <section className="section-padding mt-12">
       <div className="mx-auto max-w-6xl px-4">
         <ScrollReveal>
           <SectionHeader

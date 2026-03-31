@@ -26,7 +26,7 @@ export default function SectionHeader({
   };
 
   return (
-    <div ref={ref} className={centered ? "text-center" : ""}>
+    <div ref={ref} className={`overflow-visible ${centered ? "text-center" : ""}`}>
       {Tag === "h1" ? (
         <motion.h1 {...headingProps}>{title}</motion.h1>
       ) : (

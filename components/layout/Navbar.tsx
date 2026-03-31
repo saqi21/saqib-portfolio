@@ -59,7 +59,7 @@ export default function Navbar() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="fixed top-0 left-0 right-0 z-50"
+        className="fixed top-0 left-0 right-0 z-[60]"
       >
         <div className="mx-auto max-w-7xl px-3 pt-3 sm:px-4">
         <nav
@@ -142,7 +142,7 @@ export default function Navbar() {
 
             <motion.button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="relative z-[60] flex items-center justify-center rounded-lg p-2 text-text-secondary transition-colors hover:text-text-primary"
+              className="relative flex items-center justify-center rounded-lg p-2 text-text-secondary transition-colors hover:text-text-primary"
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               whileTap={{ scale: 0.9 }}
             >
