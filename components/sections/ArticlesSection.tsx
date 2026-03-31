@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -7,6 +8,7 @@ import { ArrowRight, ExternalLink, Flame } from "lucide-react";
 
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import SectionHeader from "@/components/shared/SectionHeader";
+import { ArticleCardSkeleton } from "@/components/shared/SkeletonCard";
 import { articles } from "@/data/articles";
 
 function isRecent(dateStr: string): boolean {
@@ -17,6 +19,13 @@ function isRecent(dateStr: string): boolean {
 }
 
 export default function ArticlesSection() {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoaded(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section id="articles" className="section-padding">
       <div className="container mx-auto max-w-6xl px-4">
@@ -27,6 +36,13 @@ export default function ArticlesSection() {
           />
         </ScrollReveal>
 
+        {!loaded ? (
+          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {Array.from({ length: 4 }).map((_, i) => (
+              <ArticleCardSkeleton key={i} />
+            ))}
+          </div>
+        ) : (
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {articles.slice(0, 4).map((article, index) => {
             const hasContent = !!article.content;
@@ -109,6 +125,7 @@ export default function ArticlesSection() {
             );
           })}
         </div>
+        )}
 
         {/* View All Button */}
         <ScrollReveal delay={0.4}>

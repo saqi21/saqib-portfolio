@@ -60,7 +60,7 @@ export default function ContactCTA() {
               >
                 <Link
                   href="/contact"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary-500 to-primary-700 px-8 py-3.5 text-sm font-medium text-white transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/30 hover:brightness-110 sm:w-auto"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary-500 to-primary-700 px-8 py-3.5 text-sm font-medium text-white transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/30 hover:brightness-110 sm:min-w-[220px]"
                 >
                   <Calendar className="h-4 w-4" />
                   Start a Project
@@ -73,7 +73,7 @@ export default function ContactCTA() {
               >
                 <a
                   href={`mailto:${personalInfo.email}`}
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-primary-500/30 px-8 py-3.5 text-sm font-medium text-primary-400 transition-all duration-300 hover:bg-primary-500/10 sm:w-auto"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-primary-500/30 px-8 py-3.5 text-sm font-medium text-primary-400 transition-all duration-300 hover:bg-primary-500/10 sm:min-w-[220px]"
                 >
                   <Mail className="h-4 w-4" />
                   Email Me Directly

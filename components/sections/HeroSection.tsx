@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -62,6 +62,19 @@ export default function HeroSection() {
   const { normalizedX, normalizedY } = useMousePosition();
   const isMobile = useMediaQuery("(max-width: 768px)");
   const webGLSupported = useWebGL();
+  const [canvasReady, setCanvasReady] = useState(false);
+
+  // Defer Three.js init until after main content is interactive
+  useEffect(() => {
+    if (!webGLSupported) return;
+    const start = () => setCanvasReady(true);
+    if ("requestIdleCallback" in window) {
+      const id = requestIdleCallback(start, { timeout: 1500 });
+      return () => cancelIdleCallback(id);
+    }
+    const timer = setTimeout(start, 200);
+    return () => clearTimeout(timer);
+  }, [webGLSupported]);
 
   const mousePosition = useMemo(
     () => ({ x: normalizedX, y: normalizedY }),
@@ -77,7 +90,7 @@ export default function HeroSection() {
     <section className="relative flex h-screen min-h-[600px] items-center justify-center overflow-hidden">
       {/* 3D Background */}
       <div className="absolute inset-0 z-0" aria-hidden="true">
-        {webGLSupported ? (
+        {webGLSupported && canvasReady ? (
           <Scene>
             <ParticleField
               count={isMobile ? 400 : 800}

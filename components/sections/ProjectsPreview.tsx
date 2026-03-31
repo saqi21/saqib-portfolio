@@ -8,6 +8,7 @@ import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import SectionHeader from "@/components/shared/SectionHeader";
+import { ProjectCardSkeleton } from "@/components/shared/SkeletonCard";
 import { works } from "@/data/works";
 
 const featuredWorks = works;
@@ -73,8 +74,14 @@ function useIsMobile() {
 
 export default function ProjectsPreview() {
   const [page, setPage] = useState(0);
+  const [loaded, setLoaded] = useState(false);
   const isMobile = useIsMobile();
   const perPage = isMobile ? 1 : 3;
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoaded(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
   const totalPages = Math.ceil(featuredWorks.length / perPage);
 
   const handlePrev = () => {
@@ -122,22 +129,30 @@ export default function ProjectsPreview() {
         </ScrollReveal>
 
         <div className="relative mt-12 overflow-hidden">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={page}
-              initial={{ opacity: 0, x: 60 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -60 }}
-              transition={{ duration: 0.35, ease: "easeInOut" }}
-              className="grid grid-cols-1 gap-6 md:grid-cols-3"
-            >
-              {visibleWorks.map((work) => (
-                <div key={work.slug} className="h-full">
-                  <ProjectCard work={work} />
-                </div>
+          {!loaded ? (
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+              {Array.from({ length: perPage }).map((_, i) => (
+                <ProjectCardSkeleton key={i} />
               ))}
-            </motion.div>
-          </AnimatePresence>
+            </div>
+          ) : (
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={page}
+                initial={{ opacity: 0, x: 60 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -60 }}
+                transition={{ duration: 0.35, ease: "easeInOut" }}
+                className="grid grid-cols-1 gap-6 md:grid-cols-3"
+              >
+                {visibleWorks.map((work) => (
+                  <div key={work.slug} className="h-full">
+                    <ProjectCard work={work} />
+                  </div>
+                ))}
+              </motion.div>
+            </AnimatePresence>
+          )}
         </div>
 
         {/* Dots indicator */}

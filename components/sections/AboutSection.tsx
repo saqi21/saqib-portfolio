@@ -8,6 +8,7 @@ import { ArrowRight } from "lucide-react";
 import SectionHeader from "@/components/shared/SectionHeader";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import AnimatedCounter from "@/components/shared/AnimatedCounter";
+import LiveTestReport from "@/components/sections/LiveTestReport";
 import { basePath } from "@/lib/constants";
 
 const stats = [
@@ -140,6 +141,13 @@ export default function AboutSection() {
             </div>
           </ScrollReveal>
         </div>
+
+        {/* Live Test Report */}
+        <ScrollReveal delay={0.3}>
+          <div className="mt-12">
+            <LiveTestReport />
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

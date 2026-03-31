@@ -173,6 +173,28 @@ export default function RootLayout({
                   name: "SaQiB Zafar",
                 },
               },
+              {
+                "@context": "https://schema.org",
+                "@type": "Occupation",
+                name: "Senior SQA Engineer & Frontend Developer",
+                occupationLocation: {
+                  "@type": "Country",
+                  name: "Pakistan",
+                },
+                description:
+                  "Specializes in building pixel-perfect interfaces and architecting end-to-end test automation frameworks using Cypress, Selenium, and Cucumber BDD.",
+                skills:
+                  "Cypress, Selenium, Cucumber BDD, React.js, Next.js, TypeScript, Ruby on Rails, Manual Testing, API Testing",
+                estimatedSalary: {
+                  "@type": "MonetaryAmountDistribution",
+                  name: "base",
+                  currency: "USD",
+                  duration: "P1Y",
+                  percentile50: 35000,
+                },
+                qualifications:
+                  "BS Computer Science, GIFT University; 5+ years experience in SQA and Frontend Development",
+              },
             ]),
           }}
         />
