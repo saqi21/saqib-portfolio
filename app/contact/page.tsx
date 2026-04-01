@@ -21,6 +21,7 @@ import { socialIconMap } from "@/lib/icons";
 import type { ContactFormData } from "@/types";
 
 const iconMap = socialIconMap;
+const getTimestamp = () => Date.now();
 
 interface StatusMessage {
   type: "success" | "error" | "warning";
@@ -52,9 +53,11 @@ export default function ContactPage() {
     const honeypot = (document.querySelector('input[name="website"]') as HTMLInputElement)?.value;
     if (honeypot) return;
 
+    const now = getTimestamp();
+
     // Rate limiting — 1 submission per 60 seconds
     const lastSent = localStorage.getItem("lastContactSent");
-    if (lastSent && Date.now() - Number(lastSent) < 60000) {
+    if (lastSent && now - Number(lastSent) < 60000) {
       setStatus({ type: "warning", text: "Please wait a moment before sending again." });
       return;
     }
@@ -63,11 +66,11 @@ export default function ContactPage() {
       const result = await sendContactEmail(data);
 
       if (result.success && result.warning) {
-        localStorage.setItem("lastContactSent", String(Date.now()));
+        localStorage.setItem("lastContactSent", String(now));
         setStatus({ type: "warning", text: result.message });
         reset();
       } else if (result.success) {
-        localStorage.setItem("lastContactSent", String(Date.now()));
+        localStorage.setItem("lastContactSent", String(now));
         setStatus({ type: "success", text: result.message });
         reset();
       } else {

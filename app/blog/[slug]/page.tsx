@@ -170,6 +170,11 @@ export default async function ArticlePage({
             <h1 className="mt-6 font-heading text-3xl font-bold leading-tight text-text-primary md:text-4xl lg:text-[2.75rem] lg:leading-tight">
               {article.title}
             </h1>
+            {article.subtitle && (
+              <p className="mt-3 text-lg text-text-muted md:text-xl">
+                {article.subtitle}
+              </p>
+            )}
 
             {/* Meta */}
             <div className="mt-6 flex flex-wrap items-center justify-between gap-4">

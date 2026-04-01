@@ -60,6 +60,7 @@ export interface Article {
   id: string;
   slug: string;
   title: string;
+  subtitle?: string;
   description: string;
   image: string;
   readTime: string;
