@@ -2,7 +2,7 @@ import { PersonalInfo } from "@/types";
 
 export const personalInfo: PersonalInfo = {
   name: "SaQiB",
-  title: "Front End & Software Quality Assurance Engineer",
+  title: "Software Quality Assurance Engineer",
   email: "saqibmehar41@gmail.com",
   phone: "+(92) 341-6796766",
   address: "Daska, Sialkot, Pakistan",

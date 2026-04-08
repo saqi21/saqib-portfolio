@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import {
   Mail,
   Phone,
   MapPin,
   Github,
   Linkedin,
-  ExternalLink,
 } from "lucide-react";
 import { personalInfo } from "@/data/personal";
 import {
@@ -16,7 +14,6 @@ import {
   languages,
 } from "@/data/experience";
 import { works } from "@/data/works";
-import { basePath } from "@/lib/constants";
 import PrintButton from "./PrintButton";
 
 export const metadata: Metadata = {
@@ -82,28 +79,17 @@ export default function ResumePage() {
           <div className="pointer-events-none absolute inset-y-0 left-0 w-2 rounded-l-xl bg-gradient-to-r from-gray-200/80 to-transparent print:hidden" />
 
           {/* Header */}
-          <header className="border-b-2 border-gray-900 pb-3">
-            <div className="flex items-center gap-4">
-              <Image
-                src={`${basePath}/images/profile-white-bg.png`}
-                alt="Saqib Zafar"
-                width={64}
-                height={64}
-                className="h-16 w-16 rounded-full object-cover ring-2 ring-gray-200"
-              />
-              <div>
-                <h1 className="text-2xl font-bold tracking-tight text-gray-900">
-                  Saqib Zafar
-                </h1>
-                <p className="text-sm font-medium text-gray-600">
-                  {personalInfo.title}
-                </p>
-              </div>
-            </div>
-            <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-0.5 text-xs text-gray-600">
+          <header className="border-b-2 border-gray-900 pb-3 text-center">
+            <h1 className="text-2xl font-bold tracking-tight text-gray-900">
+              Saqib Zafar
+            </h1>
+            <p className="text-sm font-medium text-gray-600">
+              {personalInfo.title}
+            </p>
+            <div className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-0.5 text-xs text-gray-600">
               <span className="inline-flex items-center gap-1">
                 <Mail className="h-3 w-3" />
-                {personalInfo.email}
+                saqib@devslooptech.com
               </span>
               <span className="inline-flex items-center gap-1">
                 <Phone className="h-3 w-3" />
@@ -131,15 +117,6 @@ export default function ResumePage() {
                 <Github className="h-3 w-3" />
                 GitHub
               </a>
-              <a
-                href="https://saqi21.github.io/saqib-portfolio"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-blue-700 underline"
-              >
-                <ExternalLink className="h-3 w-3" />
-                Portfolio
-              </a>
             </div>
           </header>
 
@@ -149,14 +126,14 @@ export default function ResumePage() {
               Professional Summary
             </h2>
             <p className="mt-1.5 text-gray-700">
-              SQA Engineer and Front-End Developer with 3+ years of experience
-              specializing in manual and automation testing with Cypress, Selenium,
-              and Cucumber BDD. Proven track record of increasing automation
+              Software Quality Assurance Engineer at Devsloop with 3+ years of
+              experience specializing in manual and automation testing with Cypress,
+              Selenium, and Cucumber BDD. Proven track record of increasing automation
               coverage from 0% to 80% and reducing regression testing time by 70%.
-              Skilled in leading QA teams, mentoring junior engineers, and bridging
-              development and quality assurance. Passionate about delivering
-              high-quality, bug-free software and building clean, responsive web
-              interfaces.
+              Skilled in leading QA teams, mentoring junior engineers, and training
+              interns to build strong testing foundations. Passionate about delivering
+              high-quality, bug-free software and building scalable test automation
+              frameworks.
             </p>
           </section>
 

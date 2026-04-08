@@ -6,7 +6,6 @@ import {
   languages,
 } from "@/data/experience";
 import { works } from "@/data/works";
-import { basePath } from "@/lib/constants";
 
 const skillCategories = [
   {
@@ -36,7 +35,6 @@ function escapeHtml(str: string) {
 }
 
 function buildResumeHtml(): string {
-  const profileSrc = `${window.location.origin}${basePath}/images/profile-white-bg.png`;
 
   const experiencesHtml = experiences
     .map((exp) => {
@@ -117,27 +115,21 @@ function buildResumeHtml(): string {
 
   return `
     <div id="resume-pdf-content" style="color:#111827;background:#ffffff;padding:0 20px 20px;max-width:780px;margin:0 auto;font-size:12px;line-height:1.5;font-family:system-ui,-apple-system,'Segoe UI',sans-serif;">
-      <header style="border-bottom:2px solid #111827;padding-bottom:10px;">
-        <div style="display:flex;align-items:center;gap:16px;">
-          <img src="${profileSrc}" alt="Saqib Zafar" style="border-radius:9999px;width:52px;height:52px;object-fit:cover;" crossorigin="anonymous" />
-          <div>
-            <h1 style="font-size:1.5rem;font-weight:700;letter-spacing:-0.025em;color:#111827;margin:0;">Saqib Zafar</h1>
-            <p style="font-size:14px;font-weight:500;color:#4b5563;margin:0;">${escapeHtml(personalInfo.title)}</p>
-          </div>
-        </div>
-        <div style="margin-top:8px;display:flex;flex-wrap:wrap;align-items:center;column-gap:16px;row-gap:2px;font-size:12px;color:#4b5563;">
-          <span>${escapeHtml(personalInfo.email)}</span>
+      <header style="border-bottom:2px solid #111827;padding-bottom:10px;text-align:center;">
+        <h1 style="font-size:1.5rem;font-weight:700;letter-spacing:-0.025em;color:#111827;margin:0;">Saqib Zafar</h1>
+        <p style="font-size:14px;font-weight:500;color:#4b5563;margin:0;">${escapeHtml(personalInfo.title)}</p>
+        <div style="margin-top:8px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;column-gap:16px;row-gap:2px;font-size:12px;color:#4b5563;">
+          <span>saqib@devslooptech.com</span>
           <span>${escapeHtml(personalInfo.phone)}</span>
           <span>${escapeHtml(personalInfo.address)}</span>
           <a href="https://www.linkedin.com/in/saqib-zafar-6966a7225/" style="color:#1d4ed8;text-decoration:underline;">LinkedIn</a>
           <a href="https://github.com/saqi21" style="color:#1d4ed8;text-decoration:underline;">GitHub</a>
-          <a href="https://saqi21.github.io/saqib-portfolio" style="color:#1d4ed8;text-decoration:underline;">Portfolio</a>
         </div>
       </header>
 
       <section style="margin-top:10px;">
         <h2 style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#111827;border-bottom:1px solid #d1d5db;padding-bottom:4px;margin-bottom:6px;">Professional Summary</h2>
-        <p style="font-size:12px;line-height:1.5;color:#374151;">SQA Engineer and Front-End Developer with 3+ years of experience specializing in manual and automation testing with Cypress, Selenium, and Cucumber BDD. Proven track record of increasing automation coverage from 0% to 80% and reducing regression testing time by 70%. Skilled in leading QA teams, mentoring junior engineers, and bridging development and quality assurance. Passionate about delivering high-quality, bug-free software and building clean, responsive web interfaces.</p>
+        <p style="font-size:12px;line-height:1.5;color:#374151;">Software Quality Assurance Engineer at Devsloop with 3+ years of experience specializing in manual and automation testing with Cypress, Selenium, and Cucumber BDD. Proven track record of increasing automation coverage from 0% to 80% and reducing regression testing time by 70%. Skilled in leading QA teams, mentoring junior engineers, and training interns to build strong testing foundations. Passionate about delivering high-quality, bug-free software and building scalable test automation frameworks.</p>
       </section>
 
       <section style="margin-top:10px;">
